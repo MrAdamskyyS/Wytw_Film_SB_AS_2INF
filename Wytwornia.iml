@@ -20,5 +20,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
     <orderEntry type="library" name="javafx-sdk-17.0" level="project" />
     <orderEntry type="library" name="javafx.web" level="project" />
+    <orderEntry type="library" name="javafx.media" level="project" />
   </component>
 </module>
