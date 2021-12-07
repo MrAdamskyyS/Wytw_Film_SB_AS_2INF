@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.Controller">
+   <children>
+      <TextField fx:id="txtfieldLogin" layoutX="74.0" layoutY="150.0" promptText="login" />
+      <PasswordField fx:id="txtfieldPassword" layoutX="74.0" layoutY="185.0" promptText="password" />
+      <Button fx:id="btnLogin" layoutX="107.0" layoutY="221.0" mnemonicParsing="false" onAction="#changeSceneToMain" prefHeight="25.0" prefWidth="93.0" text="Zaloguj" />
+      <Button fx:id="btnRegister" layoutX="106.0" layoutY="255.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Zarejestruj" />
+      <Label fx:id="labelfajny" alignment="CENTER" layoutY="43.0" prefHeight="30.0" prefWidth="297.0" text="Wytwórnia FIlmowa">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Text fx:id="loginProgress" layoutX="74.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0" />
+   </children>
+</AnchorPane>
