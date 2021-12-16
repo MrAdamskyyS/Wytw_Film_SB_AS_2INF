@@ -39,7 +39,7 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Label fx:id="labelfajny" alignment="CENTER" layoutY="1.0" prefHeight="66.0" prefWidth="297.0" text="Wytwórnia Filmowa" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelNazwaFirmy" alignment="CENTER" layoutY="1.0" prefHeight="66.0" prefWidth="297.0" text="Wytwórnia Filmowa" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>

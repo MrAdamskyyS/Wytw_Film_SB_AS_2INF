@@ -34,7 +34,7 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutY="506.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Admin Panel" textFill="WHITE">
+      <Button layoutY="506.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Admin Panel" textFill="WHITE" visible="false">
          <font>
             <Font size="27.0" />
          </font>
