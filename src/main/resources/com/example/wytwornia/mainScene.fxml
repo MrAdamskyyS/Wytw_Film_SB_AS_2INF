@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,12 +22,12 @@
          <font>
             <Font size="31.0" />
          </font></Button>
-      <Button layoutY="180.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Filmy" textFill="WHITE">
+      <Button layoutY="180.0" mnemonicParsing="false" onAction="#btnFilmyonAction" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Filmy" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutY="238.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Koszyk" textFill="WHITE">
+      <Button layoutY="238.0" mnemonicParsing="false" onAction="#openKoszyk" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Koszyk" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
@@ -63,5 +66,15 @@
             <DropShadow />
          </effect>
       </Label>
+      <ScrollPane fx:id="ScrollPaneFilmy" layoutX="232.0" layoutY="71.0" prefHeight="649.0" prefWidth="1049.0" visible="false">
+         <content>
+            <TableView prefHeight="648.0" prefWidth="1032.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
