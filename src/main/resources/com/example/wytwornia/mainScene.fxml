@@ -18,31 +18,31 @@
             <Image url="@main_white.png" />
          </image>
       </ImageView>
-      <Button layoutY="624.0" mnemonicParsing="false" onAction="#changeSceneToLogin" prefHeight="97.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-border-color: black; -fx-background-color: 280137;" text="Wyloguj" textFill="WHITE">
+      <Button fx:id="btnWyloguj" layoutY="624.0" mnemonicParsing="false" onAction="#changeSceneToLogin" prefHeight="97.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-border-color: black; -fx-background-color: 280137;" text="Wyloguj" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font></Button>
-      <Button layoutY="180.0" mnemonicParsing="false" onAction="#btnFilmyonAction" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Filmy" textFill="WHITE">
+      <Button fx:id="brnFilmy" layoutY="180.0" mnemonicParsing="false" onAction="#btnFilmyonAction" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Filmy" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutY="238.0" mnemonicParsing="false" onAction="#openKoszyk" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Koszyk" textFill="WHITE">
+      <Button fx:id="btnKoszyk" layoutY="238.0" mnemonicParsing="false" onAction="#openKoszyk" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Koszyk" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutY="506.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Admin Panel" textFill="WHITE" visible="false">
+      <Button fx:id="btnAdminPanel" layoutY="506.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Admin Panel" textFill="WHITE" visible="false">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutY="566.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Ustawienia" textFill="WHITE">
+      <Button fx:id="btnUstawienia" layoutY="566.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Ustawienia" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Label fx:id="labelfajny" alignment="CENTER" layoutX="232.0" layoutY="1.0" prefHeight="69.0" prefWidth="1049.0" text="Wytwórnia Filmowa" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelNazwaFirmy" alignment="CENTER" layoutX="232.0" layoutY="1.0" prefHeight="69.0" prefWidth="1049.0" text="Wytwórnia Filmowa" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
@@ -50,17 +50,9 @@
             <DropShadow />
          </effect>
       </Label>
-      <Label fx:id="labelfajny1" alignment="CENTER" prefHeight="70.0" prefWidth="232.0" text="Login" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelLogin" alignment="CENTER" prefHeight="70.0" prefWidth="232.0" text="Login" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="41.0" />
-         </font>
-         <effect>
-            <DropShadow />
-         </effect>
-      </Label>
-      <Label fx:id="labelfajny11" alignment="CENTER" layoutX="1.0" layoutY="70.0" prefHeight="59.0" prefWidth="232.0" text="Portfel: " textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
          </font>
          <effect>
             <DropShadow />
@@ -76,5 +68,18 @@
             </TableView>
          </content>
       </ScrollPane>
+      <Button fx:id="btnPortfelMain" layoutX="77.0" layoutY="75.0" mnemonicParsing="false" onAction="#portfelClickedMain" prefHeight="49.0" prefWidth="79.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: 280137;" text="Portfel:" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelMainPortfelAmount" layoutX="148.0" layoutY="71.0" prefHeight="59.0" prefWidth="71.0" text="0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
    </children>
 </AnchorPane>

@@ -30,6 +30,23 @@ public class Controller  {
     public Controller() throws IOException {
 
     }
+    @FXML
+    public void btnPortfelWyplata(){
+
+    }
+    @FXML
+    public void btnPortfelWplata(){
+
+    }
+    @FXML
+    public void portfelClickedMain() throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("portfel.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
 
 
     @FXML
