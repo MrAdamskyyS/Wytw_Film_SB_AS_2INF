@@ -32,7 +32,7 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="btnAdminPanel" layoutY="506.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Admin Panel" textFill="WHITE" visible="false">
+      <Button fx:id="btnAdminPanel" layoutY="508.0" mnemonicParsing="false" onAction="#openAdminPanel" prefHeight="56.0" prefWidth="232.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: black;" text="Admin Panel" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
@@ -68,12 +68,12 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button fx:id="btnPortfelMain" layoutX="77.0" layoutY="75.0" mnemonicParsing="false" onAction="#portfelClickedMain" prefHeight="49.0" prefWidth="79.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: 280137;" text="Portfel:" textFill="WHITE">
+      <Button fx:id="btnPortfelMain" layoutX="77.0" layoutY="75.0" mnemonicParsing="false" onAction="#openPortfel" prefHeight="49.0" prefWidth="79.0" style="-fx-border-radius: 0; -fx-background-color: 280137; -fx-border-color: 280137;" text="Portfel:" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Label fx:id="labelMainPortfelAmount" layoutX="148.0" layoutY="71.0" prefHeight="59.0" prefWidth="71.0" text="0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelMainPortfelAmount" layoutX="148.0" layoutY="70.0" prefHeight="59.0" prefWidth="71.0" text="0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>

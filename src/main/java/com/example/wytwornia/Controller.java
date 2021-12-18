@@ -39,7 +39,7 @@ public class Controller  {
 
     }
     @FXML
-    public void portfelClickedMain() throws IOException {
+    public void openPortfel() throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("portfel.fxml"));
         Scene scene = new Scene(root);
@@ -55,6 +55,16 @@ public class Controller  {
 
 
     }
+    @FXML
+    public void openAdminPanel() throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("adminPanel.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
     @FXML
     public void btnAnulujOnAction(ActionEvent event) {
         Window window =   ((Node)(event.getSource())).getScene().getWindow();
