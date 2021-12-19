@@ -35,7 +35,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="btnRegister" layoutX="61.0" layoutY="369.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="175.0" style="-fx-border-radius: 0; -fx-border-color: black;" text="Zarejestruj">
+      <Button fx:id="btnRegister" layoutX="61.0" layoutY="369.0" mnemonicParsing="false" onAction="#zarejestruj" prefHeight="54.0" prefWidth="175.0" style="-fx-border-radius: 0; -fx-border-color: black;" text="Zarejestruj">
          <font>
             <Font size="20.0" />
          </font></Button>

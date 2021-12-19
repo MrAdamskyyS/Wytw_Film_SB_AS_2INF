@@ -9,7 +9,7 @@ public class DatabaseConnection {
     }
 
 
-    public boolean query(String wantedquery) throws SQLException {
+    public boolean searchQuery(String wantedquery) throws SQLException {
 
         Statement statement = connection.createStatement();
     ResultSet resultSet = statement.executeQuery(wantedquery);
@@ -23,4 +23,14 @@ public class DatabaseConnection {
 
 */
 }
+
+    public boolean insertQuery(String wantedquery) throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(wantedquery);
+        return true;
+
+
+    }
+
+
 }
