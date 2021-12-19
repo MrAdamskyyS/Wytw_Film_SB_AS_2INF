@@ -74,9 +74,9 @@
             <DropShadow />
          </effect>
       </Label>
-      <ScrollPane fx:id="ScrollPaneFilmy" layoutX="232.0" layoutY="71.0" prefHeight="649.0" prefWidth="1049.0" visible="false">
+      <ScrollPane fx:id="ScrollPaneFilmy" layoutX="232.0" layoutY="71.0" prefHeight="649.0" prefWidth="1049.0">
          <content>
-            <TableView prefHeight="648.0" prefWidth="1032.0">
+            <TableView prefHeight="646.0" prefWidth="1046.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />

@@ -1,10 +1,5 @@
 package com.example.wytwornia;
 
-
-
-
-
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,12 +12,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
-
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class Controller  {
+
     public ScrollPane ScrollPaneFilmy;
     DatabaseConnection connection = new DatabaseConnection();
     public Pane paneUstawienia;
@@ -35,12 +29,13 @@ public class Controller  {
     public Controller() throws IOException, SQLException {
 
     }
+
     @FXML
     public void btnUstawieniaAction() {
-
         ScrollPaneFilmy.setVisible(false);
         paneUstawienia.setVisible(true);
     }
+
 public void newWindow(String file) throws IOException {
     Stage stage = new Stage();
     stage.initModality(Modality.APPLICATION_MODAL);
@@ -53,25 +48,23 @@ public void newWindow(String file) throws IOException {
 
     @FXML
     public void btnPortfelWyplata(){
-
     }
+
     @FXML
     public void btnPortfelWplata(){
-
     }
+
     @FXML
     public void openPortfel() throws IOException {
         newWindow("portfel.fxml");
     }
 
-
     @FXML
     public void btnFilmyonAction() {
         paneUstawienia.setVisible(false);
         ScrollPaneFilmy.setVisible(true);
-
-
     }
+
     @FXML
     public void openAdminPanel() throws IOException {
         newWindow("adminPanel.fxml");
@@ -84,6 +77,7 @@ public void newWindow(String file) throws IOException {
             ((Stage) window).close();
         }
     }
+
     @FXML
     public void openKoszyk() throws IOException {
         newWindow("koszyk.fxml");
@@ -91,7 +85,6 @@ public void newWindow(String file) throws IOException {
 
     @FXML
     public void zaloguj(ActionEvent event) throws IOException, SQLException {
-
         String login= txtFieldLogin.getText();
         String password = txtFieldPassword.getText();
         boolean validData = connection.query("select login, Passwd from user where login=\""+login+"\" and Passwd=\""+password+"\";");
@@ -103,16 +96,13 @@ public void newWindow(String file) throws IOException {
         window.show();
         } else alertbox.display("Nie ma takiego użytkownika");
     }
+
 @FXML
    public void changeSceneToLogin(ActionEvent event) throws IOException {
-
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("loginScene.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();
-
-
     }
-
 }
