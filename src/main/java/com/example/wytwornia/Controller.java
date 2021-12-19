@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -24,12 +25,22 @@ import java.io.IOException;
 
 public class Controller  {
     public ScrollPane ScrollPaneFilmy;
+
+    public Pane paneUstawienia;
     Button anulujButton;
 
 
     public Controller() throws IOException {
 
     }
+    @FXML
+    public void btnUstawieniaAction() {
+
+        ScrollPaneFilmy.setVisible(false);
+        paneUstawienia.setVisible(true);
+    }
+
+
     @FXML
     public void btnPortfelWyplata(){
 
@@ -51,6 +62,7 @@ public class Controller  {
 
     @FXML
     public void btnFilmyonAction() {
+        paneUstawienia.setVisible(false);
         ScrollPaneFilmy.setVisible(true);
 
 
