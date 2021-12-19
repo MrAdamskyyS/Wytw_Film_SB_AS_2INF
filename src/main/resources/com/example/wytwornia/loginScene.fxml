@@ -18,17 +18,17 @@
             <Image url="@login_graph_white.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtfieldLogin" layoutX="29.0" layoutY="95.0" prefHeight="70.0" prefWidth="239.0" promptText="Login" style="-fx-background-radius: 0; -fx-border-color: black;">
+      <TextField id="txtFieldLogin" fx:id="txtFieldLogin" layoutX="29.0" layoutY="95.0" prefHeight="70.0" prefWidth="239.0" promptText="Login" style="-fx-background-radius: 0; -fx-border-color: black;">
          <font>
             <Font size="24.0" />
          </font></TextField>
-      <PasswordField fx:id="txtfieldPassword" layoutX="29.0" layoutY="189.0" prefHeight="70.0" prefWidth="239.0" promptText="Hasło" style="-fx-border-radius: 0; -fx-border-color: black;">
+      <PasswordField id="txtFieldPassword" fx:id="txtFieldPassword" layoutX="29.0" layoutY="189.0" prefHeight="70.0" prefWidth="239.0" promptText="Hasło" style="-fx-border-radius: 0; -fx-border-color: black;">
          <font>
             <Font size="24.0" />
          </font></PasswordField>
       <AnchorPane layoutX="63.0" layoutY="309.0">
          <children>
-            <Button fx:id="btnLogin" layoutX="-2.0" layoutY="-1.0" mnemonicParsing="false" onAction="#changeSceneToMain" prefHeight="53.0" prefWidth="175.0" style="-fx-background-radius: 0; -fx-border-color: black;" text="Zaloguj">
+            <Button fx:id="btnLogin" layoutX="-2.0" layoutY="-1.0" mnemonicParsing="false" onAction="#zaloguj" prefHeight="53.0" prefWidth="175.0" style="-fx-background-radius: 0; -fx-border-color: black;" text="Zaloguj">
                <font>
                   <Font size="20.0" />
                </font>
