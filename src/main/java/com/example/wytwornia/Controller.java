@@ -23,6 +23,7 @@ public class Controller  {
     public TextField txtFieldLogin;
     public TextField txtFieldPassword;
     Button anulujButton;
+    User user;
     AlertBox alertbox = new AlertBox();
 
 
@@ -45,6 +46,9 @@ public void newWindow(String file) throws IOException {
     stage.setResizable(false);
     stage.show();
 }
+    public void setUser(String login) throws SQLException { // tworzy obiekt klasy User z danymi pobranymi z bazy
+        user = connection.dodajUzytkownika(login);
+    }
 
     @FXML
     public void btnPortfelWyplata(){
@@ -89,6 +93,7 @@ public void newWindow(String file) throws IOException {
         String password = txtFieldPassword.getText();
         boolean validData = connection.searchQuery("select Login, Password from users where login=\""+login+"\" and Password=\""+password+"\";");
         if(validData) { // jezeli connection.query zwroci true, czyli znaleziono takiego usera z takim haslem to przelacz scene na mainScene.fxml
+        setUser(login); // przypisanie obiektowi user Klasy User, utworzonemu na samej gorze (line 26) danych z poprawnie zalogowanego uzytkownika
         Parent parent = FXMLLoader.load(getClass().getResource("mainScene.fxml"));
         Scene scene = new Scene(parent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
