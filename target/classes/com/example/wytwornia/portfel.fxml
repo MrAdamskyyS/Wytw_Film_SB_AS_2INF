@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.PortfelController">
    <children>
       <Label layoutX="77.0" layoutY="57.0" prefHeight="39.0" prefWidth="260.0" text="Dostępne środki: " textAlignment="CENTER">
          <font>
@@ -25,7 +25,7 @@
             <Font name="Georgia" size="25.0" />
          </font>
       </Label>
-      <TextField alignment="CENTER_RIGHT" layoutX="169.0" layoutY="135.0" prefHeight="29.0" prefWidth="149.0">
+      <TextField fx:id="kwotaAmount" alignment="CENTER_RIGHT" layoutX="169.0" layoutY="135.0" prefHeight="29.0" prefWidth="149.0">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>

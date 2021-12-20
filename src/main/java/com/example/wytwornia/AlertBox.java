@@ -9,10 +9,10 @@ import javafx.stage.Stage;
 
 public class AlertBox {
 
-    public static void display(String message) {
+    public static void display(String message, String title) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Błąd");
+        window.setTitle(title);
         window.setMinWidth(250);
         Label label = new Label();
         label.setText(message);

@@ -8,13 +8,9 @@ public class User {
     private int settings; // 11 - white theme + polski, 12 - whitetheme + angielski, 21 - dark theme + polski, 22 - dark theme + angielski
     private int admin;// 0 - normalny user, 1 - admin
 
-    public int getAdmin() {
-        return admin;
-    }
+    public int getAdmin() { return admin; }
 
-    public void setAdmin(int admin) {
-        this.admin = admin;
-    }
+    public void setAdmin(int admin) { this.admin = admin; }
 
     public int getSettings() {
         return settings;
