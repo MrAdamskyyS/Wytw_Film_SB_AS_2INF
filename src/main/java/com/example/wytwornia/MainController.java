@@ -1,7 +1,6 @@
 package com.example.wytwornia;
 
 import javafx.event.ActionEvent;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-public  class MainController implements Initializable {
+public  class MainController  implements Initializable {
 
     public ScrollPane ScrollPaneFilmy;
     public Pane paneUstawienia;
@@ -28,11 +26,14 @@ public  class MainController implements Initializable {
     public Label labelLogin = new Label();
     public Label labelNazwaFirmy;
     static AlertBox alertbox = new AlertBox();
+    public static Window stage;
 
 
     public MainController() {
 
     }
+
+
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,6 +44,7 @@ public  class MainController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 
     }
     @FXML
@@ -59,18 +61,13 @@ public void newWindow(String file) throws IOException {
     stage.setScene(scene);
     stage.setResizable(false);
     stage.show();
-    stage.setOnCloseRequest(e->{
-
-    });
-
-
 }
-
 
 
     @FXML
     public void openPortfel() throws IOException {
         newWindow("portfel.fxml");
+
     }
 
     @FXML
@@ -91,10 +88,14 @@ public void newWindow(String file) throws IOException {
             ((Stage) window).close();
         }
     }
-
+    @FXML
+    public void updateInfo(){
+        this.labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()+"PLN"));
+    }
     @FXML
     public void openKoszyk() throws IOException {
-        newWindow("koszyk.fxml");
+       newWindow("koszyk.fxml");
+
     }
 
 @FXML

@@ -12,10 +12,9 @@ import java.util.ResourceBundle;
 public class PortfelController implements Initializable {
     public Label labelPortfelAmount;
     public TextField kwotaAmount;
-
     @FXML
     public void btnAnulujOnAction(ActionEvent event) {
-        MainController.btnAnulujOnAction(event);
+      MainController.btnAnulujOnAction(event);
     }
     public boolean isNumeric(String str) { // sprawdzamy czy string jest numerem i czy jest dodatnia
 
@@ -40,7 +39,10 @@ public class PortfelController implements Initializable {
             labelPortfelAmount.setText(String.valueOf(roznica));
             //zmien w bazie portfel usera na nowa wartosc
             DatabaseConnection.insertQuery("UPDATE `users` SET `Wallet` =\""+roznica+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");
+            LoginController.user.setWallet(roznica); // ustaw wallet na obiekcie user na nowa wartosc
             AlertBox.display("Pomyślnie wypłaciłeś: "+kwotaAmount.getText()+"zł","Sukces");
+
+
             return;
         }
         AlertBox.display("Nie masz tyle środków!","Błąd");
@@ -56,8 +58,10 @@ public class PortfelController implements Initializable {
         labelPortfelAmount.setText(String.valueOf(suma));
         //zmien w bazie portfel usera na nowa wartosc
         DatabaseConnection.insertQuery("UPDATE `users` SET `Wallet` =\""+suma+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");
+        LoginController.user.setWallet(suma); // ustaw wallet na obiekcie user na nowa wartosc
         AlertBox.display("Pomyślnie wpłaciłeś: "+kwotaAmount.getText()+"zł","Sukces");
         return;
+
     }
 
     @Override
