@@ -37,7 +37,7 @@ public  class MainController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         labelLogin.setText(LoginController.user.getLogin()); // ustawienie loginu w lewym gornym na login obiektu user
-        labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet())); // wartosc portfela z obiektu user
+        labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()) + "PLN"); // wartosc portfela z obiektu user
         try {
             labelNazwaFirmy.setText(DatabaseConnection.returnNazwaFirmy("select * from nazwafirmy")); // ustawienie nazwy firmy na gorze na nazwe firmy z bazy, przyda sie przy zmianach nazy firmy
         } catch (SQLException e) {
