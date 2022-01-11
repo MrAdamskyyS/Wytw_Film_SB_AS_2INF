@@ -36,6 +36,7 @@ public  class MainController  implements Initializable {
     public TableColumn<Film, String> colDirector;
     public TableColumn<Film, String> colGenre;
     private Object[] filmy;
+    private ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
 
 
     public MainController() {
@@ -57,30 +58,22 @@ public  class MainController  implements Initializable {
         colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
         colDirector.setCellValueFactory(new PropertyValueFactory<>("Director"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("Genre"));
-        mainFilmyTable.setItems(listaFilmow);
+
         try {
             filmy = DatabaseConnection.returnFilmy();
-           String[] filmyStr = (String[]) filmy[0];
-            for (int i = 0; i < filmyStr.length; i++){
-                System.out.println(filmyStr[i]);
+           String[] titleArray = (String[]) filmy[0];
+           String[] directorArray = (String[]) filmy[1];
+           String[] genreArray = (String[]) filmy[2];
+            for (int i = 0; i < titleArray.length; i++){
+                listaFilmow.add(new Film(titleArray[i],directorArray[i],genreArray[i]));
            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
+        
+        mainFilmyTable.setItems(listaFilmow);
     }
-    private ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
-
-            /*
-            = FXCollections.observableArrayList(
-
-
-
-        new Film(" "," "," ")
-
-    );
-    */
 
 
 
