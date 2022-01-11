@@ -26,8 +26,6 @@ public class DatabaseConnection {
            String[] titleMovie = new String[rowCount];
            String[] directorMovie = new String[rowCount];
            String[] genreMovie = new String[rowCount];
-
-
             resultSet.first(); // przesuwamy kursor znowu na poczatek
 
                  for (int i = 0; i < rowCount; i++) {
@@ -42,7 +40,7 @@ public class DatabaseConnection {
                  filmy[2] = genreMovie; // trzeci element tablicy typu Object to tablica typu String genreMovie zawierajaca gatunek filmu
             return filmy;
         }
-        String[] tempString = new String[1];
+        String[] tempString = new String[1]; // obsluga bledow, gdy to sie zwroci to wiemy ze cos poszlo nie tak
         return tempString;
     }
 

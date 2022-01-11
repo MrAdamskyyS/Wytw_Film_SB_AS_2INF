@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 
 public  class MainController  implements Initializable {
-
+    public Button btnAdminPanel;
     public ScrollPane ScrollPaneFilmy;
     public Pane paneUstawienia;
     public Label labelMainPortfelAmount;
@@ -47,6 +47,10 @@ public  class MainController  implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        if(LoginController.user.getAdmin() == 1)  btnAdminPanel.setVisible(true);   // przyznanie adminowi dostepu do "admin panel"
+        else btnAdminPanel.setVisible(false);
+
         labelLogin.setText(LoginController.user.getLogin()); // ustawienie loginu w lewym gornym na login obiektu user
         labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()) + "PLN"); // wartosc portfela z obiektu user
         try {
@@ -55,35 +59,36 @@ public  class MainController  implements Initializable {
             e.printStackTrace();
         }
 
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
-        colDirector.setCellValueFactory(new PropertyValueFactory<>("Director"));
-        colGenre.setCellValueFactory(new PropertyValueFactory<>("Genre"));
-
-        try {
-            filmy = DatabaseConnection.returnFilmy();
-           String[] titleArray = (String[]) filmy[0];
-           String[] directorArray = (String[]) filmy[1];
-           String[] genreArray = (String[]) filmy[2];
-            for (int i = 0; i < titleArray.length; i++){
-                listaFilmow.add(new Film(titleArray[i],directorArray[i],genreArray[i]));
-           }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        
-        mainFilmyTable.setItems(listaFilmow);
+       initializeTable();
     }
 
 
+private void initializeTable() {
+    colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
+    colDirector.setCellValueFactory(new PropertyValueFactory<>("Director"));
+    colGenre.setCellValueFactory(new PropertyValueFactory<>("Genre"));
+
+    try {
+        filmy = DatabaseConnection.returnFilmy();
+        String[] titleArray = (String[]) filmy[0];
+        String[] directorArray = (String[]) filmy[1];
+        String[] genreArray = (String[]) filmy[2];
+        for (int i = 0; i < titleArray.length; i++){
+            listaFilmow.add(new Film(titleArray[i],directorArray[i],genreArray[i]));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    mainFilmyTable.setItems(listaFilmow);
+}
 
     @FXML
-    public void btnUstawieniaAction() {
+    private void btnUstawieniaAction() {
         ScrollPaneFilmy.setVisible(false);
         paneUstawienia.setVisible(true);
     }
 
-public void newWindow(String file) throws IOException {
+    private void newWindow(String file) throws IOException {
     Stage stage = new Stage();
     stage.initModality(Modality.APPLICATION_MODAL);
     Parent root = FXMLLoader.load(getClass().getResource(file));
@@ -95,19 +100,19 @@ public void newWindow(String file) throws IOException {
 
 
     @FXML
-    public void openPortfel() throws IOException {
+    private void openPortfel() throws IOException {
         newWindow("portfel.fxml");
 
     }
 
     @FXML
-    public void btnFilmyonAction() {
+    private void btnFilmyonAction() {
         paneUstawienia.setVisible(false);
         ScrollPaneFilmy.setVisible(true);
     }
 
     @FXML
-    public void openAdminPanel() throws IOException {
+    private void openAdminPanel() throws IOException {
         newWindow("adminPanel.fxml");
     }
 
@@ -119,17 +124,17 @@ public void newWindow(String file) throws IOException {
         }
     }
     @FXML
-    public void updateInfo(){
+    private void updateInfo(){
         this.labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()+"PLN"));
     }
     @FXML
-    public void openKoszyk() throws IOException {
+    private void openKoszyk() throws IOException {
        newWindow("koszyk.fxml");
 
     }
 
 @FXML
-   public void changeSceneToLogin(ActionEvent event) throws IOException {
+    private void changeSceneToLogin(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("loginScene.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

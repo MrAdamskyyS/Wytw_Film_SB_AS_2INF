@@ -27,7 +27,7 @@ public class PortfelController implements Initializable {
         return false;
     }
 
-
+    @FXML
     public void btnPortfelWyplata() throws SQLException {
         if(!isNumeric(kwotaAmount.getText())) {
             AlertBox.display("Podaj prawidłową kwotę","Błąd");
@@ -49,6 +49,7 @@ public class PortfelController implements Initializable {
         return;
     }
 
+    @FXML
     public void btnPortfelWplata() throws SQLException {
         if(!isNumeric(kwotaAmount.getText())) {
             AlertBox.display("Podaj prawidłową kwotę","Błąd");

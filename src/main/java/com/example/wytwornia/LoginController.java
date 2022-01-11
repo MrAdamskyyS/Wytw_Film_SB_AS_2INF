@@ -23,7 +23,7 @@ public class LoginController implements Initializable {
     public LoginController() throws SQLException {
     }
 
-     public void setUser(String login) throws SQLException { // tworzy obiekt klasy User z danymi pobranymi z bazy
+    private void setUser(String login) throws SQLException { // tworzy obiekt klasy User z danymi pobranymi z bazy
         user = DatabaseConnection.dodajUzytkownika(login);
     }
     @FXML
@@ -36,7 +36,7 @@ public class LoginController implements Initializable {
         }
     }
     @FXML
-    public void zaloguj(ActionEvent event) throws IOException, SQLException {
+    private void zaloguj(ActionEvent event) throws IOException, SQLException {
         String login= txtFieldLogin.getText();
         String password = txtFieldPassword.getText();
         boolean validData = DatabaseConnection.checkForResultsQuery("select Login, Password from users where login=\""+login+"\" and Password=\""+password+"\";");
@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
 
     }
     @FXML
-    public void zarejestruj() throws SQLException {
+    private void zarejestruj() throws SQLException {
         String login= txtFieldLogin.getText();
         String password = txtFieldPassword.getText();
         if(login.isEmpty() || password.isEmpty()) {
