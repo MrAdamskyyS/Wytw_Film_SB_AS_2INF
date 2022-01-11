@@ -70,7 +70,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Label fx:id="labelMainPortfelAmount" layoutX="101.0" layoutY="76.0" mouseTransparent="true" prefHeight="49.0" prefWidth="127.0" text="0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelMainPortfelAmount" layoutX="112.0" layoutY="78.0" mouseTransparent="true" prefHeight="49.0" prefWidth="129.0" text="0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
@@ -80,10 +80,11 @@
       </Label>
       <ScrollPane fx:id="ScrollPaneFilmy" layoutX="232.0" layoutY="71.0" prefHeight="649.0" prefWidth="1049.0">
          <content>
-            <TableView prefHeight="646.0" prefWidth="1046.0">
+            <TableView fx:id="mainFilmyTable" prefHeight="646.0" prefWidth="1046.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="colTitle" prefWidth="184.0" text="Title" />
+                <TableColumn fx:id="colDirector" prefWidth="264.0" text="Director" />
+                  <TableColumn fx:id="colGenre" minWidth="0.0" prefWidth="199.0" text="Genre" />
               </columns>
             </TableView>
          </content>
@@ -132,7 +133,7 @@
             </AnchorPane>
          </children>
       </Pane>
-      <Label layoutX="18.0" layoutY="82.0" text="Portfel:" textFill="WHITE">
+      <Label layoutX="25.0" layoutY="83.0" text="Portfel:" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
