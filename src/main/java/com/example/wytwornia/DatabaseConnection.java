@@ -17,7 +17,7 @@ public class DatabaseConnection {
     public DatabaseConnection() throws SQLException {
     }
 
-    public static Object[] returnFilmy() throws SQLException { // zwracamy 3 String tablice, dlatego musimy zwrocic tablice typu Object
+    public static Object[] returnFilmy() throws SQLException { // zwracamy 4 tablice, dlatego musimy zwrocic tablice typu Object
         Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
         ResultSet resultSet = statement.executeQuery("SELECT * FROM `movie`");
         if (resultSet.next()) {
@@ -26,18 +26,21 @@ public class DatabaseConnection {
            String[] titleMovie = new String[rowCount];
            String[] directorMovie = new String[rowCount];
            String[] genreMovie = new String[rowCount];
+           float[] priceMovie = new float[rowCount];
             resultSet.first(); // przesuwamy kursor znowu na poczatek
 
                  for (int i = 0; i < rowCount; i++) {
                     titleMovie[i] = resultSet.getString("Title");
                     directorMovie[i] = resultSet.getString("Director");
                     genreMovie[i] = resultSet.getString("Genre");
+                    priceMovie[i] = resultSet.getFloat("Price");
                     resultSet.next();
             }
                  Object[] filmy = new Object[rowCount];
                  filmy[0] = titleMovie;  // pierwszy element tablicy typu Object to tablica typu String titleMovie zawierajaca tytuly
                  filmy[1] = directorMovie; // drugi element tablicy typu Object to tablica typu String directorMovie zawierajaca rezyserow
                  filmy[2] = genreMovie; // trzeci element tablicy typu Object to tablica typu String genreMovie zawierajaca gatunek filmu
+                 filmy[3] = priceMovie; // czwarty element tablicy typu Object to tablica typu Float genreMovie zawierajaca cene
             return filmy;
         }
         String[] tempString = new String[1]; // obsluga bledow, gdy to sie zwroci to wiemy ze cos poszlo nie tak

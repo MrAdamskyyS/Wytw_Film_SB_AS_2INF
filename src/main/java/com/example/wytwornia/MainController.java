@@ -35,6 +35,7 @@ public  class MainController  implements Initializable {
     public TableColumn<Film, String> colTitle;
     public TableColumn<Film, String> colDirector;
     public TableColumn<Film, String> colGenre;
+    public TableColumn<Film, String> colPrice;
     private Object[] filmy;
     private ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
 
@@ -43,38 +44,42 @@ public  class MainController  implements Initializable {
 
     }
 
-
-
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        if(LoginController.user.getAdmin() == 1)  btnAdminPanel.setVisible(true);   // przyznanie adminowi dostepu do "admin panel"
-        else btnAdminPanel.setVisible(false);
-
-        labelLogin.setText(LoginController.user.getLogin()); // ustawienie loginu w lewym gornym na login obiektu user
-        labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()) + "PLN"); // wartosc portfela z obiektu user
-        try {
-            labelNazwaFirmy.setText(DatabaseConnection.returnNazwaFirmy("select * from nazwafirmy")); // ustawienie nazwy firmy na gorze na nazwe firmy z bazy, przyda sie przy zmianach nazy firmy
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        adminVisibility();
+        initializeText();
        initializeTable();
     }
 
+    private void adminVisibility(){
+        if(LoginController.user.getAdmin() == 1)  btnAdminPanel.setVisible(true);   // przyznanie adminowi dostepu do "admin panel"
+        else btnAdminPanel.setVisible(false);
+    }
 
+private void initializeText() {
+    labelLogin.setText(LoginController.user.getLogin()); // ustawienie loginu w lewym gornym na login obiektu user
+    labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()) + "PLN"); // wartosc portfela z obiektu user
+    try {
+        labelNazwaFirmy.setText(DatabaseConnection.returnNazwaFirmy("select * from nazwafirmy")); // ustawienie nazwy firmy na gorze na nazwe firmy z bazy, przyda sie przy zmianach nazy firmy
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 private void initializeTable() {
     colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
     colDirector.setCellValueFactory(new PropertyValueFactory<>("Director"));
     colGenre.setCellValueFactory(new PropertyValueFactory<>("Genre"));
+    colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
     try {
         filmy = DatabaseConnection.returnFilmy();
         String[] titleArray = (String[]) filmy[0];
         String[] directorArray = (String[]) filmy[1];
         String[] genreArray = (String[]) filmy[2];
+        float[] priceArray = (float[]) filmy[3];
         for (int i = 0; i < titleArray.length; i++){
-            listaFilmow.add(new Film(titleArray[i],directorArray[i],genreArray[i]));
+            listaFilmow.add(new Film(titleArray[i],directorArray[i],genreArray[i],priceArray[i]));
         }
     } catch (SQLException e) {
         e.printStackTrace();

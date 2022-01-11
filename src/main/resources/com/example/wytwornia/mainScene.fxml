@@ -85,6 +85,7 @@
                 <TableColumn fx:id="colTitle" prefWidth="184.0" text="Title" />
                 <TableColumn fx:id="colDirector" prefWidth="264.0" text="Director" />
                   <TableColumn fx:id="colGenre" minWidth="0.0" prefWidth="199.0" text="Genre" />
+                  <TableColumn fx:id="colPrice" minWidth="0.0" prefWidth="199.0" text="Price (PLN)" />
               </columns>
             </TableView>
          </content>
