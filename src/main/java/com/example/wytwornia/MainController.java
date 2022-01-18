@@ -30,7 +30,6 @@ public  class MainController  implements Initializable {
     public Label labelLogin = new Label();
     public Label labelNazwaFirmy;
     static AlertBox alertbox = new AlertBox();
-    public static Window stage;
     public TableView mainFilmyTable;
     public TableColumn<Film, String> colTitle;
     public TableColumn<Film, String> colDirector;
@@ -61,7 +60,7 @@ private void initializeText() {
     labelLogin.setText(LoginController.user.getLogin()); // ustawienie loginu w lewym gornym na login obiektu user
     labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()) + "PLN"); // wartosc portfela z obiektu user
     try {
-        labelNazwaFirmy.setText(DatabaseConnection.returnNazwaFirmy("select * from nazwafirmy")); // ustawienie nazwy firmy na gorze na nazwe firmy z bazy, przyda sie przy zmianach nazy firmy
+        labelNazwaFirmy.setText(LoginController.connection.returnNazwaFirmy("select * from nazwafirmy")); // ustawienie nazwy firmy na gorze na nazwe firmy z bazy, przyda sie przy zmianach nazy firmy
     } catch (SQLException e) {
         e.printStackTrace();
     }
@@ -73,7 +72,7 @@ private void initializeTable() {
     colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
     try {
-        filmy = DatabaseConnection.returnFilmy();
+        filmy = LoginController.connection.returnFilmy();
         String[] titleArray = (String[]) filmy[0];
         String[] directorArray = (String[]) filmy[1];
         String[] genreArray = (String[]) filmy[2];

@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
+
+
 public class PortfelController implements Initializable {
     public Label labelPortfelAmount;
     public TextField kwotaAmount;
@@ -38,7 +40,7 @@ public class PortfelController implements Initializable {
             int roznica = Integer.parseInt(labelPortfelAmount.getText())-Integer.parseInt(kwotaAmount.getText());
             labelPortfelAmount.setText(String.valueOf(roznica));
             //zmien w bazie portfel usera na nowa wartosc
-            DatabaseConnection.insertQuery("UPDATE `users` SET `Wallet` =\""+roznica+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");
+            LoginController.connection.insertQuery("UPDATE `users` SET `Wallet` =\""+roznica+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");
             LoginController.user.setWallet(roznica); // ustaw wallet na obiekcie user na nowa wartosc
             AlertBox.display("Pomyślnie wypłaciłeś: "+kwotaAmount.getText()+"zł","Sukces");
 
@@ -58,7 +60,7 @@ public class PortfelController implements Initializable {
         int suma = Integer.parseInt(labelPortfelAmount.getText())+Integer.parseInt(kwotaAmount.getText());
         labelPortfelAmount.setText(String.valueOf(suma));
         //zmien w bazie portfel usera na nowa wartosc
-        DatabaseConnection.insertQuery("UPDATE `users` SET `Wallet` =\""+suma+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");
+        LoginController.connection.insertQuery("UPDATE `users` SET `Wallet` =\""+suma+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");
         LoginController.user.setWallet(suma); // ustaw wallet na obiekcie user na nowa wartosc
         AlertBox.display("Pomyślnie wpłaciłeś: "+kwotaAmount.getText()+"zł","Sukces");
         return;

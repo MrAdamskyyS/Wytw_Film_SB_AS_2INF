@@ -1,25 +1,31 @@
 package com.example.wytwornia;
 import javax.xml.transform.Result;
+import java.io.InputStream;
+import java.io.Reader;
+import java.math.BigDecimal;
+import java.net.URL;
 import java.sql.*;
+import java.util.Calendar;
+import java.util.Map;
 
 public class DatabaseConnection {
 
-    private static  Connection connection;
-
-    static {
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://192.166.219.220:3306/sbas","sbas","sY.2bUJ.sr");     //"jdbc:mysql://localhost:3306/wytwornia_sbas", "root", "");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    private  Connection connection;
+    private Statement statement;
+    private ResultSet resultSet;
 
     public DatabaseConnection() throws SQLException {
+        connection = DriverManager.getConnection("jdbc:mysql://192.166.219.220:3306/sbas","sbas","sY.2bUJ.sr");     //("jdbc:mysql://localhost:3306/wytwornia_sbas", "root", "");
+        statement = connection.createStatement();
+
     }
 
-    public static Object[] returnFilmy() throws SQLException { // zwracamy 4 tablice, dlatego musimy zwrocic tablice typu Object
-        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM `movie`");
+
+    public  Object[] returnFilmy() throws SQLException { // zwracamy 4 tablice, dlatego musimy zwrocic tablice typu Object
+
+        Statement tempStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE); // robimy nowy statement typu scroll insensitive, ktory nam  pozwoli sie przenosic na poczatek i koniec wynikow
+        //nie uzywamy prywatnej zmiennej statement, bo to ustawi nam wszystkie nastepne statementy na scroll insensitive, i musielibysmy w kazdej metodzie robic statement = connection.createStatement();, zeby znowu byly forward only
+        resultSet = tempStatement.executeQuery("SELECT * FROM `movie`");
         if (resultSet.next()) {
            resultSet.last(); // ustawiamy na ostatni element
             int rowCount = resultSet.getRow();// rowCount to numer rzędu ostatniego elementu, stad wiemy ile jest wyników
@@ -49,29 +55,25 @@ public class DatabaseConnection {
 
 
 
-    public static String returnNazwaFirmy(String wantedquery) throws SQLException {
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(wantedquery);
+    public String returnNazwaFirmy(String wantedquery) throws SQLException {
+         resultSet = statement.executeQuery(wantedquery);
         if(resultSet.next()) return resultSet.getString("NazwaFirmy");
         else return null;
     }
 
-    public static boolean checkForResultsQuery(String wantedquery) throws SQLException { // sprawdza czy dane zapytanie cos zwroci
-        Statement statement = connection.createStatement();
-    ResultSet resultSet = statement.executeQuery(wantedquery);
+    public boolean checkForResultsQuery(String wantedquery) throws SQLException { // sprawdza czy dane zapytanie cos zwroci
+     resultSet = statement.executeQuery(wantedquery);
     if(resultSet.next()) return true; // jezeli cos znajdzie -> true
     else return false; // jezeli nic nie znajdzie -> false
 
 }
-    public static boolean insertQuery(String wantedquery) throws SQLException { //wykonujemy insert wantedquery , czyli wpisujemy cos do bazy
-        Statement statement = connection.createStatement();
+    public boolean insertQuery(String wantedquery) throws SQLException { //wykonujemy insert wantedquery , czyli wpisujemy cos do bazy
         statement.executeUpdate(wantedquery);
         return true;
     }
 
-    public static User dodajUzytkownika(String login) throws SQLException { // znajdujemy uzytkownika, tworzymy obiekt i go zwracamy
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT Login, Password, Settings, Wallet, Admin FROM users WHERE Login=\""+login+"\";");
+    public User dodajUzytkownika(String login) throws SQLException { // znajdujemy uzytkownika, tworzymy obiekt i go zwracamy
+         resultSet = statement.executeQuery("SELECT Login, Password, Settings, Wallet, Admin FROM users WHERE Login=\""+login+"\";");
         if(resultSet.next()) {
             User tempUser = new User();
             tempUser.setLogin(resultSet.getString("Login"));

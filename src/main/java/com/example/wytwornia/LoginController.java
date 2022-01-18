@@ -16,21 +16,23 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+    public static DatabaseConnection connection;
     static User user; // static zeby mozna bylo uzyc tego w innej klasie
     public TextField txtFieldLogin;
     public TextField txtFieldPassword;
     public Label labelNazwaFirmy;
     public LoginController() throws SQLException {
+        connection = new DatabaseConnection();
     }
 
     private void setUser(String login) throws SQLException { // tworzy obiekt klasy User z danymi pobranymi z bazy
-        user = DatabaseConnection.dodajUzytkownika(login);
+        user = connection.dodajUzytkownika(login);
     }
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
-           labelNazwaFirmy.setText(DatabaseConnection.returnNazwaFirmy("select * from nazwafirmy"));
+           labelNazwaFirmy.setText(connection.returnNazwaFirmy("select * from nazwafirmy"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -39,7 +41,7 @@ public class LoginController implements Initializable {
     private void zaloguj(ActionEvent event) throws IOException, SQLException {
         String login= txtFieldLogin.getText();
         String password = txtFieldPassword.getText();
-        boolean validData = DatabaseConnection.checkForResultsQuery("select Login, Password from users where login=\""+login+"\" and Password=\""+password+"\";");
+        boolean validData = connection.checkForResultsQuery("select Login, Password from users where login=\""+login+"\" and Password=\""+password+"\";");
         if(validData) { // jezeli connection.query zwroci true, czyli znaleziono takiego usera z takim haslem to przelacz scene na mainScene.fxml
             setUser(login); // przypisanie obiektowi user Klasy User, utworzonemu na samej gorze (line 26) danych z poprawnie zalogowanego uzytkownika
             Parent parent = FXMLLoader.load(getClass().getResource("mainScene.fxml"));
@@ -58,9 +60,9 @@ public class LoginController implements Initializable {
             MainController.alertbox.display("Podaj login i hasło","Błąd");
             return;
         }
-        boolean validData = DatabaseConnection.checkForResultsQuery("select login from users where login=\""+login+"\";");
+        boolean validData = connection.checkForResultsQuery("select login from users where login=\""+login+"\";");
         if(!validData) { // jezeli nie ma takiego usera, to go dodaj
-            DatabaseConnection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '"+login+"', '"+password+"', '11', '0', '0')");
+            connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '"+login+"', '"+password+"', '11', '0', '0')");
         } else MainController.alertbox.display("Taki użytkownik już istnieje","Błąd");
     }
 
