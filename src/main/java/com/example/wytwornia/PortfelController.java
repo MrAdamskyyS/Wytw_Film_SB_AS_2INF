@@ -14,12 +14,21 @@ import java.util.ResourceBundle;
 public class PortfelController implements Initializable {
     public Label labelPortfelAmount;
     public TextField kwotaAmount;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeText();
+    }
+
+    private void initializeText(){
+        labelPortfelAmount.setText(String.valueOf(LoginController.user.getWallet())); // wartosc portfela z obiektu user
+    }
+
     @FXML
     public void btnAnulujOnAction(ActionEvent event) {
       MainController.btnAnulujOnAction(event);
     }
     public boolean isNumeric(String str) { // sprawdzamy czy string jest numerem i czy jest dodatnia
-
         try {
             if(Integer.parseInt(str)>0)
             return true;
@@ -67,8 +76,5 @@ public class PortfelController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        labelPortfelAmount.setText(String.valueOf(LoginController.user.getWallet())); // wartosc portfela z obiektu user
-    }
+
 }
