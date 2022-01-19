@@ -1,3 +1,6 @@
+.root {
+    -fx-background-color: #15202b;
+}
 
 .button {
     -fx-border-radius: 0;
@@ -6,6 +9,10 @@
 }
 .pane{
     -fx-padding: 0px;
+}
+#paneUstawienia .label, .radio-button {
+    -fx-text-fill: white;
+
 }
 .scroll-pane{
     -fx-padding: 0px;
