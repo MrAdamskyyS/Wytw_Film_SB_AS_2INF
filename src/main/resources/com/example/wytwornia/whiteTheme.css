@@ -34,7 +34,6 @@
     -fx-pref-height: 30px;
     -fx-pref-width: 262.25px;
     -fx-alignment: center-left;
-    -fx-background-color: #FFFFFF;
     -fx-text-fill: black;
     -fx-alignment: CENTER_LEFT;
     -fx-border-color: black;
@@ -42,10 +41,10 @@
     -fx-border-width: 0.6px;
 
 }
-.table-row:selected {
-    -fx-background-color:lightgray;
-
+.table-row-cell:selected {
+    -fx-background-color: #8e7796;
 }
+
 .text-field{
     -fx-font-size: 18px;
     -fx-pref-height: 40px;
