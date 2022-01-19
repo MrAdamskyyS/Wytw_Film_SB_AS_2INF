@@ -1,5 +1,8 @@
 package com.example.wytwornia;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class User {
 
     private String login;
@@ -7,6 +10,7 @@ public class User {
     private int wallet;
     private int settings; // 11 - white theme + polski, 12 - whitetheme + angielski, 21 - dark theme + polski, 22 - dark theme + angielski
     private int admin;// 0 - normalny user, 1 - admin
+    public ObservableList<Film> koszyk;
 
     public int getAdmin() { return admin; }
 
@@ -50,6 +54,7 @@ public class User {
         this.admin = 0;
         this.settings = 11;
         this.wallet= 0;
+        this.koszyk = FXCollections.observableArrayList();
     }
     public User(String login, String password, int admin, int settings, int wallet){
         this.login = login;
@@ -57,6 +62,7 @@ public class User {
         this.admin = admin;
         this.settings = settings;
         this.wallet = wallet;
+        this.koszyk = FXCollections.observableArrayList();
     }
 
 

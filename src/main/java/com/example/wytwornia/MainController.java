@@ -31,11 +31,12 @@ public  class MainController  implements Initializable {
     public Label labelMainPortfelAmount;
     public Label labelLogin = new Label();
     public Label labelNazwaFirmy;
-    public TableView mainFilmyTable;
+    public TableView<Film> mainFilmyTable;
     public TableColumn<Film, String> colTitle;
     public TableColumn<Film, String> colDirector;
     public TableColumn<Film, String> colGenre;
     public TableColumn<Film, String> colPrice;
+    private Film tempFilm;
     private Object[] filmy;
     private ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
 
@@ -165,5 +166,9 @@ public  class MainController  implements Initializable {
         }
     }
 
+@FXML
+    private void btnDodajDoKoszyka(){
+    LoginController.user.koszyk.add(mainFilmyTable.getSelectionModel().getSelectedItem());
+}
 
 }

@@ -19,10 +19,12 @@
       </Label>
       <ScrollPane layoutX="35.0" layoutY="105.0">
          <content>
-            <TableView prefHeight="344.0" prefWidth="359.0" stylesheets="@koszykTableView.css">
+            <TableView fx:id="tableViewKoszyk" prefHeight="344.0" prefWidth="359.0" stylesheets="@koszykTableView.css">
               <columns>
-                <TableColumn editable="false" prefWidth="275.0" resizable="false" text="Tytuł" />
-                <TableColumn editable="false" prefWidth="69.0" resizable="false" text="Cena" />
+                <TableColumn fx:id="colTitle" editable="false" prefWidth="105.0" resizable="false" text="Title" />
+                <TableColumn fx:id="colDirector" editable="false" minWidth="0.0" prefWidth="87.0" resizable="false" text="Director" />
+                  <TableColumn fx:id="colGenre" editable="false" prefWidth="97.0" resizable="false" text="Genre" />
+                  <TableColumn fx:id="colPrice" editable="false" prefWidth="69.0" resizable="false" text="Price (PLN)" />
               </columns>
             </TableView>
          </content>
@@ -52,6 +54,6 @@
       <RadioButton layoutX="429.0" layoutY="612.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="przelewy24" toggleGroup="$paymentMethod" />
       <Label fx:id="lblDostepneSrodki" layoutX="549.0" layoutY="568.0" text="Label" />
       <Button layoutX="423.0" layoutY="644.0" mnemonicParsing="false" text="Zapłać" />
-      <Button onAction="#btnAnulujOnAction" layoutX="486.0" layoutY="644.0" mnemonicParsing="false" text="Anuluj" />
+      <Button layoutX="486.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" text="Anuluj" />
    </children>
 </AnchorPane>

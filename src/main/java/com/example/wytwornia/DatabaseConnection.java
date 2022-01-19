@@ -74,7 +74,7 @@ public class DatabaseConnection {
         return true;
     }
 
-    public User dodajUzytkownika(String login) throws SQLException { // znajdujemy uzytkownika, tworzymy obiekt i go zwracamy
+    public User znajdzUzytkownika(String login) throws SQLException { // znajdujemy uzytkownika, tworzymy obiekt i go zwracamy
          resultSet = statement.executeQuery("SELECT Login, Password, Settings, Wallet, Admin FROM users WHERE Login=\""+login+"\";");
         if(resultSet.next()) {
             User tempUser = new User();

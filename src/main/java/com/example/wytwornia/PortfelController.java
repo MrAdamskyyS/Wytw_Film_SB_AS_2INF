@@ -3,6 +3,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
@@ -16,9 +17,7 @@ public class PortfelController implements Initializable {
     public TextField kwotaAmount;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeText();
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {initializeText();}
 
     private void initializeText(){
         labelPortfelAmount.setText(String.valueOf(LoginController.user.getWallet())); // wartosc portfela z obiektu user

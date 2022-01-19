@@ -94,7 +94,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="835.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="214.0" text="Dodaj film do kosza" textFill="WHITE">
+            <Button layoutX="835.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnDodajDoKoszyka" prefHeight="43.0" prefWidth="214.0" text="Dodaj film do kosza" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

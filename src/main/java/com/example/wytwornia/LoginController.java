@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     public static DatabaseConnection connection;
-    static User user; // static zeby mozna bylo uzyc tego w innej klasie
+    public static User user; // static zeby mozna bylo uzyc tego w innej klasie
     public TextField txtFieldLogin;
     public TextField txtFieldPassword;
     public Label labelNazwaFirmy;
@@ -25,7 +25,7 @@ public class LoginController implements Initializable {
 
     private void setUser(String login)  { // tworzy obiekt klasy User z danymi pobranymi z bazy
         try {
-            user = connection.dodajUzytkownika(login);
+            user = connection.znajdzUzytkownika(login);
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -34,9 +34,7 @@ public class LoginController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
             initializeText();
-
     }
 
     private void initializeText()  {
