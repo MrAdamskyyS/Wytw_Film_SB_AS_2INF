@@ -36,7 +36,6 @@ public  class MainController  implements Initializable {
     public TableColumn<Film, String> colDirector;
     public TableColumn<Film, String> colGenre;
     public TableColumn<Film, String> colPrice;
-    private Film tempFilm;
     private Object[] filmy;
     private ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
 
@@ -56,7 +55,7 @@ public  class MainController  implements Initializable {
 
     private void initializeText() {
         labelLogin.setText(LoginController.user.getLogin()); // ustawienie loginu w lewym gornym na login obiektu user
-        labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()) + "PLN"); // wartosc portfela z obiektu user
+        labelMainPortfelAmount.setText(LoginController.user.getWallet() + " PLN"); // wartosc portfela z obiektu user
         try {
             labelNazwaFirmy.setText(LoginController.connection.returnNazwaFirmy("select * from nazwafirmy")); // ustawienie nazwy firmy na gorze na nazwe firmy z bazy, przyda sie przy zmianach nazy firmy
         } catch (SQLException e) {
@@ -143,7 +142,7 @@ public  class MainController  implements Initializable {
 
     @FXML
     private void updateInfo(){
-        this.labelMainPortfelAmount.setText(String.valueOf(LoginController.user.getWallet()+"PLN"));
+        this.labelMainPortfelAmount.setText(LoginController.user.getWallet()+" PLN");
     }
 
     @FXML
@@ -168,7 +167,12 @@ public  class MainController  implements Initializable {
 
 @FXML
     private void btnDodajDoKoszyka(){
-    LoginController.user.koszyk.add(mainFilmyTable.getSelectionModel().getSelectedItem());
+        if(mainFilmyTable.getSelectionModel().getSelectedItem()!=null) {
+            LoginController.user.koszyk.add(mainFilmyTable.getSelectionModel().getSelectedItem());
+            AlertBox.display("Dodano film do koszyka","Sukces");
+        }
+        else
+            AlertBox.display("Nie wybrano filmu", "Błąd");
 }
 
 }

@@ -44,16 +44,17 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
-      <RadioButton layoutX="429.0" layoutY="567.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="119.0" selected="true" text="Portfel (dostępne:">
+      <RadioButton fx:id="radioPortfel" layoutX="429.0" layoutY="567.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="119.0" selected="true" text="Portfel (dostępne:">
          <toggleGroup>
             <ToggleGroup fx:id="paymentMethod" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="429.0" layoutY="590.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Karta VISA" toggleGroup="$paymentMethod" />
+      <RadioButton fx:id="radioVisa" layoutX="429.0" layoutY="590.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Karta VISA" toggleGroup="$paymentMethod" />
       <Label fx:id="lblDoZaplatyAmount" layoutX="504.0" layoutY="515.0" prefHeight="17.0" prefWidth="82.0" />
-      <RadioButton layoutX="429.0" layoutY="612.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="przelewy24" toggleGroup="$paymentMethod" />
-      <Label fx:id="lblDostepneSrodki" layoutX="549.0" layoutY="568.0" text="Label" />
-      <Button layoutX="423.0" layoutY="644.0" mnemonicParsing="false" text="Zapłać" />
+      <RadioButton fx:id="radioPrzelewy24" layoutX="429.0" layoutY="612.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="przelewy24" toggleGroup="$paymentMethod" />
+      <Label fx:id="lblDostepneSrodki" layoutX="548.0" layoutY="568.0" />
+      <Button layoutX="423.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnZaplac" text="Zapłać" />
       <Button layoutX="486.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" text="Anuluj" />
+      <Button layoutX="35.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnUsunZKoszyka" prefHeight="25.0" prefWidth="144.0" text="Usuń z koszyka" />
    </children>
 </AnchorPane>

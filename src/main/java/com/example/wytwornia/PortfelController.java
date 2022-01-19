@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
+import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -29,7 +31,7 @@ public class PortfelController implements Initializable {
     }
     public boolean isNumeric(String str) { // sprawdzamy czy string jest numerem i czy jest dodatnia
         try {
-            if(Integer.parseInt(str)>0)
+            if(Float.parseFloat(str)>0)
             return true;
         } catch(NumberFormatException e){
             return false;
@@ -43,9 +45,12 @@ public class PortfelController implements Initializable {
             AlertBox.display("Podaj prawidłową kwotę","Błąd");
             return;
         }
-        if(Integer.parseInt(kwotaAmount.getText())<=Integer.parseInt(labelPortfelAmount.getText())){ // jezeli kwotaAmount <= ilosci dostepnych srodkow
+        if(Float.parseFloat(kwotaAmount.getText())<=Float.parseFloat(labelPortfelAmount.getText())){ // jezeli kwotaAmount <= ilosci dostepnych srodkow
             //oblicz roznice kwotaAmount i labelPortfelAmount a następnie zmien znowu na String(String.valueOf) zeby moc wpisac do labelPortfelAmount wartosc po odjeciu
-            int roznica = Integer.parseInt(labelPortfelAmount.getText())-Integer.parseInt(kwotaAmount.getText());
+            float roznica = (Float.parseFloat(labelPortfelAmount.getText())-Float.parseFloat(kwotaAmount.getText()));
+            roznica = BigDecimal.valueOf(roznica) // aproksymacja do 2 miejsc
+                    .setScale(2, BigDecimal.ROUND_HALF_DOWN)
+                    .floatValue();
             labelPortfelAmount.setText(String.valueOf(roznica));
             //zmien w bazie portfel usera na nowa wartosc
             LoginController.connection.insertQuery("UPDATE `users` SET `Wallet` =\""+roznica+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");
@@ -65,7 +70,10 @@ public class PortfelController implements Initializable {
             AlertBox.display("Podaj prawidłową kwotę","Błąd");
             return;
         }
-        int suma = Integer.parseInt(labelPortfelAmount.getText())+Integer.parseInt(kwotaAmount.getText());
+        float suma = (Float.parseFloat(labelPortfelAmount.getText())+Float.parseFloat(kwotaAmount.getText()));
+        suma = BigDecimal.valueOf(suma) //aproksymacja do 2 miejsc
+                .setScale(2, BigDecimal.ROUND_HALF_DOWN)
+                .floatValue();
         labelPortfelAmount.setText(String.valueOf(suma));
         //zmien w bazie portfel usera na nowa wartosc
         LoginController.connection.insertQuery("UPDATE `users` SET `Wallet` =\""+suma+"\" WHERE `users`.`Login` =\""+LoginController.user.getLogin()+"\" ;");

@@ -10,14 +10,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.PortfelController">
    <children>
-      <Label layoutX="77.0" layoutY="57.0" prefHeight="39.0" prefWidth="260.0" text="Dostępne środki: " textAlignment="CENTER">
+      <Label layoutX="83.0" layoutY="70.0" prefHeight="39.0" prefWidth="260.0" text="Dostępne środki: " textAlignment="CENTER">
          <font>
-            <Font name="Georgia" size="33.0" />
+            <Font name="Georgia" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="labelPortfelAmount" layoutX="340.0" layoutY="57.0" text="0" textAlignment="CENTER">
+      <Label fx:id="labelPortfelAmount" layoutX="289.0" layoutY="76.0" text="0" textAlignment="CENTER">
          <font>
-            <Font name="Georgia" size="33.0" />
+            <Font name="Georgia" size="26.0" />
          </font>
       </Label>
       <Label layoutX="93.0" layoutY="134.0" prefHeight="30.0" prefWidth="76.0" text="Kwota" textAlignment="CENTER">

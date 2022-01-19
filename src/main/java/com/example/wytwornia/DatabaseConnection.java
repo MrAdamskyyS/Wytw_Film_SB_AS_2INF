@@ -82,7 +82,7 @@ public class DatabaseConnection {
             tempUser.setPassword(resultSet.getString("Password"));
             tempUser.setAdmin(resultSet.getInt("Admin"));
             tempUser.setSettings(resultSet.getInt("Settings"));
-            tempUser.setWallet(resultSet.getInt("Wallet"));
+            tempUser.setWallet(resultSet.getFloat("Wallet"));
             return tempUser;
         }
         return null;

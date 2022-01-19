@@ -7,7 +7,7 @@ public class User {
 
     private String login;
     private String password;
-    private int wallet;
+    private float wallet;
     private int settings; // 11 - white theme + polski, 12 - whitetheme + angielski, 21 - dark theme + polski, 22 - dark theme + angielski
     private int admin;// 0 - normalny user, 1 - admin
     public ObservableList<Film> koszyk;
@@ -24,11 +24,11 @@ public class User {
         this.settings = settings;
     }
 
-    public int getWallet() {
+    public float getWallet() {
         return wallet;
     }
 
-    public void setWallet(int wallet) {
+    public void setWallet(float wallet) {
         this.wallet = wallet;
     }
 

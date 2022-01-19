@@ -71,17 +71,17 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Label fx:id="labelMainPortfelAmount" layoutX="112.0" layoutY="78.0" mouseTransparent="true" prefHeight="49.0" prefWidth="129.0" text="0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelMainPortfelAmount" layoutX="105.0" layoutY="77.0" mouseTransparent="true" prefHeight="49.0" prefWidth="129.0" text="0" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="25.0" />
+            <Font size="19.0" />
          </font>
          <effect>
             <DropShadow />
          </effect>
       </Label>
-      <Label layoutX="25.0" layoutY="83.0" text="Portfel:" textFill="WHITE">
+      <Label layoutX="33.0" layoutY="87.0" text="Portfel:" textFill="WHITE">
          <font>
-            <Font size="25.0" />
+            <Font size="19.0" />
          </font>
          <effect>
             <DropShadow />
