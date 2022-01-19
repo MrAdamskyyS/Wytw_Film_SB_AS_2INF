@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -78,14 +79,14 @@
             <DropShadow />
          </effect>
       </Label>
-      <ScrollPane fx:id="ScrollPaneFilmy" layoutX="232.0" layoutY="71.0" prefHeight="649.0" prefWidth="1049.0">
+      <ScrollPane fx:id="ScrollPaneFilmy" layoutX="232.0" layoutY="112.0" prefHeight="579.0" prefWidth="1050.0">
          <content>
-            <TableView fx:id="mainFilmyTable" prefHeight="646.0" prefWidth="1046.0">
+            <TableView fx:id="mainFilmyTable" prefHeight="579.0" prefWidth="1050.0">
               <columns>
-                <TableColumn fx:id="colTitle" prefWidth="184.0" text="Title" />
-                <TableColumn fx:id="colDirector" prefWidth="264.0" text="Director" />
-                  <TableColumn fx:id="colGenre" minWidth="0.0" prefWidth="199.0" text="Genre" />
-                  <TableColumn fx:id="colPrice" minWidth="0.0" prefWidth="199.0" text="Price (PLN)" />
+                <TableColumn fx:id="colTitle" prefWidth="262.5" text="Title" />
+                <TableColumn fx:id="colDirector" prefWidth="262.5" text="Director" />
+                  <TableColumn fx:id="colGenre" minWidth="0.0" prefWidth="262.5" text="Genre" />
+                  <TableColumn fx:id="colPrice" minWidth="0.0" prefWidth="257.6666259765625" text="Price (PLN)" />
               </columns>
             </TableView>
          </content>
@@ -142,5 +143,17 @@
             <DropShadow />
          </effect>
       </Label>
+      <TextField layoutX="232.0" layoutY="70.0" prefHeight="0.0" prefWidth="650.0" promptText="Wpisz tytuł..." />
+      <Button layoutX="1096.0" layoutY="70.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="186.0" text="Wyszukaj" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label id="dwfdk" alignment="CENTER_RIGHT" layoutX="232.0" layoutY="691.0" prefHeight="30.0" prefWidth="865.0" styleClass="dwfdk" text="Dodaj wybrane filmy do koszyka  " textFill="WHITE" />
+      <Button layoutX="1096.0" layoutY="691.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Dodaj" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
