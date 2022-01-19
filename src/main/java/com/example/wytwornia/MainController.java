@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 public  class MainController  implements Initializable {
     public Button btnAdminPanel;
-    public ScrollPane ScrollPaneFilmy;
+    public Pane paneFilmy;
     public Pane paneUstawienia;
     public Label labelMainPortfelAmount;
     public Label labelLogin = new Label();
@@ -86,7 +86,7 @@ public  class MainController  implements Initializable {
 
     @FXML
     private void btnUstawieniaAction() {
-        ScrollPaneFilmy.setVisible(false);
+        paneFilmy.setVisible(false);
         paneUstawienia.setVisible(true);
     }
 
@@ -119,7 +119,7 @@ public  class MainController  implements Initializable {
     @FXML
     private void btnFilmyonAction() {
         paneUstawienia.setVisible(false);
-        ScrollPaneFilmy.setVisible(true);
+        paneFilmy.setVisible(true);
     }
 
     @FXML

@@ -87,7 +87,7 @@
             <DropShadow />
          </effect>
       </Label>
-      <Pane layoutX="233.0" layoutY="72.0" prefHeight="657.0" prefWidth="1049.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+      <Pane fx:id="paneFilmy" layoutX="233.0" layoutY="70.0" prefHeight="659.0" prefWidth="1049.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
          <children>
             <Button layoutX="650.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="186.0" text="Wyszukaj" textFill="WHITE">
                <font>
