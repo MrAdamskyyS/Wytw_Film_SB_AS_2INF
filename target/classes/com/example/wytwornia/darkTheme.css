@@ -10,6 +10,10 @@
 .pane{
     -fx-padding: 0px;
 }
+#paneUstawienia .label, .radio-button {
+    -fx-text-fill: white;
+
+}
 .scroll-pane{
     -fx-padding: 0px;
 }
