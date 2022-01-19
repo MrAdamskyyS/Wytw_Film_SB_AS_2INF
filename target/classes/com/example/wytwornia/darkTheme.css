@@ -1,3 +1,4 @@
+
 .button {
     -fx-border-radius: 0;
     -fx-background-color:  #280137;
@@ -37,18 +38,13 @@
     -fx-alignment: CENTER_LEFT;
     -fx-border-color: white;
     -fx-border-insets: 0px;
-    -fx-border-width: 0.2px;
-
+    -fx-border-width: 0.02px;
 }
 .table-row-cell:selected {
     -fx-background-color: #8e7796 !important;
+}.table-row-cell {
+    -fx-background-color: #15202b;
 }
-.table-row-cell:filled {
-    -fx-background-color: black;
-}
-
-
-
 .text-field{
     -fx-font-size: 18px;
     -fx-pref-height: 40px;

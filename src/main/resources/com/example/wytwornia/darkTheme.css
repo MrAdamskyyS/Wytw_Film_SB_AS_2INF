@@ -1,3 +1,4 @@
+
 .button {
     -fx-border-radius: 0;
     -fx-background-color:  #280137;
@@ -38,10 +39,11 @@
     -fx-border-color: white;
     -fx-border-insets: 0px;
     -fx-border-width: 0.02px;
-    -fx-background-color: black;
 }
 .table-row-cell:selected {
     -fx-background-color: #8e7796 !important;
+}.table-row-cell {
+    -fx-background-color: #15202b;
 }
 .text-field{
     -fx-font-size: 18px;
