@@ -3,6 +3,9 @@
     -fx-background-color:  #280137;
     -fx-border-color: black;
 }
+.pane{
+    -fx-padding: 0px;
+}
 .scroll-pane{
     -fx-padding: 0px;
 }
