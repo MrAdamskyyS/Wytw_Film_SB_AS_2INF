@@ -46,7 +46,10 @@
     -fx-border-color: white;
     -fx-border-insets: 0px;
     -fx-border-width: 0.02px;
+    -fx-font-size: 16px;
 }
+
+
 .table-row-cell:selected {
     -fx-background-color: #8e7796 !important;
 }.table-row-cell {

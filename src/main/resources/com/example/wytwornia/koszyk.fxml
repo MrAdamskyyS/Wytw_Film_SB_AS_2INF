@@ -22,10 +22,10 @@
          <content>
             <TableView fx:id="tableViewKoszyk" prefHeight="344.0" prefWidth="641.0" stylesheets="@koszykTableView.css">
               <columns>
-                <TableColumn fx:id="colTitle" editable="false" prefWidth="228.0" resizable="false" text="Title" />
-                <TableColumn fx:id="colDirector" editable="false" minWidth="0.0" prefWidth="116.0" resizable="false" text="Director" />
-                  <TableColumn fx:id="colGenre" editable="false" prefWidth="138.0" resizable="false" text="Genre" />
-                  <TableColumn fx:id="colPrice" editable="false" prefWidth="158.0" resizable="false" text="Price (PLN)" />
+                <TableColumn fx:id="colTitle" editable="false" prefWidth="186.0" resizable="false" text="Title" />
+                <TableColumn fx:id="colDirector" editable="false" minWidth="0.0" prefWidth="185.0" resizable="false" text="Director" />
+                  <TableColumn fx:id="colGenre" editable="false" prefWidth="184.0" resizable="false" text="Genre" />
+                  <TableColumn fx:id="colPrice" editable="false" prefWidth="85.0" resizable="false" text="Price (PLN)" />
               </columns>
             </TableView>
          </content>
@@ -53,7 +53,7 @@
       <RadioButton fx:id="radioVisa" layoutX="427.0" layoutY="548.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Karta VISA" toggleGroup="$paymentMethod" />
       <Label fx:id="lblDoZaplatyAmount" layoutX="512.0" layoutY="478.0" prefHeight="17.0" prefWidth="89.0" />
       <RadioButton fx:id="radioPrzelewy24" layoutX="427.0" layoutY="570.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="przelewy24" toggleGroup="$paymentMethod" />
-      <Label fx:id="lblDostepneSrodki" layoutX="548.0" layoutY="525.0" prefHeight="20.0" prefWidth="44.0" />
+      <Label fx:id="lblDostepneSrodki" layoutX="546.0" layoutY="524.0" prefHeight="20.0" prefWidth="130.0" text="temp" />
       <Button layoutX="428.0" layoutY="596.0" mnemonicParsing="false" onAction="#btnZaplac" prefWidth="89.0" text="Zapłać" />
       <Button layoutX="526.0" layoutY="596.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" prefWidth="89.0" text="Anuluj" />
       <Button layoutX="532.0" layoutY="393.0" mnemonicParsing="false" onAction="#btnUsunZKoszyka" prefHeight="25.0" prefWidth="144.0" text="Usuń z koszyka" />

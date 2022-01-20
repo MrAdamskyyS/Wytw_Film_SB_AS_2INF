@@ -36,7 +36,7 @@
     -fx-border-width: 0.6px;
 }
 .table-view .column-header .label{
-    -fx-font-size: 25px;
+    -fx-font-size: 15px;
     -fx-pref-height: 45px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
@@ -52,9 +52,21 @@
     -fx-border-insets: 0px;
     -fx-border-width: 0.02px;
 }
-.table-row-cell:selected {
+.ScrollPane, .table-row-cell:selected {
     -fx-background-color: #8e7796 !important;
-}.table-row-cell {
+}
+.table-row-cell {
+    -fx-background-color: #15202b;
+
+
+}
+.table-view .cell{
+    -fx-pref-width: 15.4em;
+
+}
+
+
+.table-view:row-selection {
     -fx-background-color: #15202b;
 }
 .text-field{
