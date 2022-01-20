@@ -66,8 +66,10 @@ public class KoszykController implements Initializable {
 
     @FXML
     public void btnUsunZKoszyka() {
-        LoginController.user.koszyk.remove(tableViewKoszyk.getSelectionModel().getSelectedItem());
-        setSumOfPrices();
+        if(!tableViewKoszyk.getSelectionModel().isEmpty()) {
+            LoginController.user.koszyk.remove(tableViewKoszyk.getSelectionModel().getSelectedItem());
+            setSumOfPrices();
+        }
     }@FXML
     public void btnZaplac() throws SQLException {
         if(LoginController.user.koszyk.size()!=0) {

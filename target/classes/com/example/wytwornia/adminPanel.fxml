@@ -59,7 +59,7 @@
             <Font name="System" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="254.0" layoutY="414.0" mnemonicParsing="false" text="Usuń film">
+      <Button layoutX="254.0" layoutY="414.0" mnemonicParsing="false" onAction="#btnUsunFilm" text="Usuń film">
          <font>
             <Font name="System" size="16.0" />
          </font>

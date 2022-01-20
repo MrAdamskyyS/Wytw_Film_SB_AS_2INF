@@ -49,6 +49,16 @@ public class AdminPanelController implements Initializable {
     }
 
     @FXML
+    public void btnUsunFilm() throws SQLException {
+        if(!tableViewFilmyAdminPanel.getSelectionModel().isEmpty()) {
+        Film temp = (Film)tableViewFilmyAdminPanel.getSelectionModel().getSelectedItem();
+        MainController.listaFilmow.remove(tableViewFilmyAdminPanel.getSelectionModel().getFocusedIndex());
+        LoginController.connection.insertQuery("DELETE FROM `movie` WHERE `title` = \""+temp.getTitle()+"\"");
+        AlertBox.display("Usunięto film "+temp.getTitle(), "Sukces");
+    } else AlertBox.display("Nie wybrałeś żadnego filmu", "Błąd");
+    }
+
+    @FXML
     public void btnAnulujOnAction(ActionEvent event) {
         MainController.btnAnulujOnAction(event);
     }
