@@ -75,9 +75,12 @@ public class LoginController implements Initializable {
             return;
         }
         try {
+            boolean isNotEmpty = connection.checkForResultsQuery("SELECT * from users"); // sprawdzamy czy jest w ogole jakis uzytkownik, jezeli nie to pierwszy musi byc adminem
             boolean validData = connection.checkForResultsQuery("select login from users where login=\"" + login + "\";");
+            int admin;
+            if(!isNotEmpty) admin = 1; else admin = 0; // jezeli nie bedzie uzytkownika to ustaw admin na 1, a jezeli bedzie to na 0
             if (!validData) { // jezeli nie ma takiego usera, to go dodaj
-                connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '" + login + "', '" + password + "', '11', '0', '0')");
+                connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '" + login + "', '" + password + "', '11', '0', '"+admin+"')");
             } else AlertBox.display("Taki użytkownik już istnieje", "Błąd");
         }
         catch (Exception e) {

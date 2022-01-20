@@ -76,13 +76,15 @@ public class AdminPanelController implements Initializable {
            return;
        }
        try {
+         boolean isNotEmpty = LoginController.connection.checkForResultsQuery("SELECT * from users"); // sprawdzamy czy jest w ogole jakis uzytkownik, jezeli nie to pierwszy musi byc adminem
            boolean validData = LoginController.connection.checkForResultsQuery("select login from users where login=\"" + login + "\";");
            int admin;
-           if(checkBoxAdmin.isSelected()) admin = 1; else admin = 0;
+           if(checkBoxAdmin.isSelected() || !isNotEmpty) admin = 1; else admin = 0;
            if (!validData) { // jezeli nie ma takiego usera, to go dodaj
                LoginController.connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '"+login+"', '"+password+"', '11', '0', '"+admin+"')");
                MainController.listaUzytkownikow.add(new User(login,password,admin));
            } else AlertBox.display("Taki użytkownik już istnieje", "Błąd");
+
        }
        catch (Exception e) {
            e.printStackTrace();
@@ -100,6 +102,37 @@ public class AdminPanelController implements Initializable {
        } else AlertBox.display("Nie wybrałeś żadnego użytkownika", "Błąd");
    }
 
+
+   @FXML
+   public void btnZabierzAdmina() throws SQLException {
+
+       if(!tableViewUsersAdminPanel.getSelectionModel().isEmpty()) {
+           User temp = (User)tableViewUsersAdminPanel.getSelectionModel().getSelectedItem();
+           if(temp.getAdmin()!=0) {
+               temp.setAdmin(0);
+               MainController.listaUzytkownikow.set(tableViewUsersAdminPanel.getSelectionModel().getFocusedIndex(),temp); // UPDATE `users` SET `Admin` = \"1\" WHERE \"Login\" = \""+temp.getLogin()+"\";
+               LoginController.connection.insertQuery(" UPDATE `users` SET `Admin` = '0' WHERE `Login`= \""+temp.getLogin()+"\"");
+               AlertBox.display("Pomyślnie zabrano admina", "Sukces");
+           } else AlertBox.display("Ten użytkownik nie ma admina", "Błąd");
+       } else AlertBox.display("Nie wybrałeś żadnego użytkownika", "Błąd");
+
+   }
+
+    @FXML
+    public void btnAwansujAdmin() throws SQLException {
+        if(!tableViewUsersAdminPanel.getSelectionModel().isEmpty()) {
+            User temp = (User)tableViewUsersAdminPanel.getSelectionModel().getSelectedItem();
+            if(temp.getAdmin()!=1) {
+                temp.setAdmin(1);
+                MainController.listaUzytkownikow.set(tableViewUsersAdminPanel.getSelectionModel().getFocusedIndex(),temp); // UPDATE `users` SET `Admin` = \"1\" WHERE \"Login\" = \""+temp.getLogin()+"\";
+                LoginController.connection.insertQuery(" UPDATE `users` SET `Admin` = '1' WHERE `Login`= \""+temp.getLogin()+"\"");
+                AlertBox.display("Pomyślnie dodano admina", "Sukces");
+
+            } else AlertBox.display("Ten użytkownik jest już adminem", "Błąd");
+        } else AlertBox.display("Nie wybrałeś żadnego użytkownika", "Błąd");
+
+
+    }
 
 
     @FXML

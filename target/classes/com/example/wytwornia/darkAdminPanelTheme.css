@@ -62,6 +62,9 @@
         -fx-font-size: 14px;
     -fx-alignment: CENTER;
 }
+.table-view:row-selection {
+    -fx-background-color: #15202b;
+}
 #moviesTable .cell{
     -fx-pref-height: 30px;
     -fx-pref-width: 20em;
