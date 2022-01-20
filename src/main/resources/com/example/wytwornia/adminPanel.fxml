@@ -1,131 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.AdminPanelController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="766.0" stylesheets="@darkAdminPanelTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.AdminPanelController">
    <children>
-      <Label layoutX="25.0" layoutY="45.0" prefHeight="65.0" prefWidth="154.0" text="Nazwa firmy">
+      <Label layoutX="25.0" layoutY="-2.0" prefHeight="65.0" prefWidth="154.0" text="Nazwa firmy">
          <font>
             <Font name="Georgia" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFieldCompanyName" layoutX="159.0" layoutY="68.0" />
-      <Button layoutX="322.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnChangeCompanyName" text="Zmień" />
-      <ScrollPane layoutX="25.0" layoutY="196.0" prefHeight="304.0" prefWidth="326.0">
+      <TextField id="txtFieldCompanyName" fx:id="txtFieldCompanyName" layoutX="146.0" layoutY="18.0" />
+      <Button layoutX="350.0" layoutY="18.0" mnemonicParsing="false" onAction="#btnChangeCompanyName" prefHeight="50.0" prefWidth="73.0" text="Zmień" />
+      <ScrollPane layoutX="19.0" layoutY="109.0" prefHeight="304.0" prefWidth="326.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="324.0">
                <children>
                   <TableView prefHeight="304.0" prefWidth="326.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn prefWidth="156.0" text="C1" />
+                      <TableColumn prefWidth="169.0" text="C2" />
                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <ScrollPane layoutX="396.0" layoutY="196.0" prefHeight="304.0" prefWidth="326.0">
+      <ScrollPane layoutX="419.0" layoutY="110.0" prefHeight="304.0" prefWidth="326.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="324.0">
                <children>
                   <TableView prefHeight="304.0" prefWidth="326.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn prefWidth="167.0" text="C1" />
+                      <TableColumn prefWidth="158.0" text="C2" />
                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
          </content>
       </ScrollPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="148.0" prefHeight="17.0" prefWidth="89.0" text="Filmy">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="62.0" prefHeight="17.0" prefWidth="89.0" text="Filmy">
          <font>
             <Font name="Georgia" size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="478.0" layoutY="148.0" prefHeight="29.0" prefWidth="163.0" text="Użytkownicy">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="488.0" layoutY="62.0" prefHeight="29.0" prefWidth="163.0" text="Użytkownicy">
          <font>
             <Font name="Georgia" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="130.0" layoutY="509.0" mnemonicParsing="false" text="Usuń film">
+      <Button layoutX="254.0" layoutY="414.0" mnemonicParsing="false" text="Usuń film">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="396.0" layoutY="509.0" mnemonicParsing="false" text="Usuń użytkownika">
+      <Button layoutX="504.0" layoutY="451.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="154.0" text="Usuń użytkownika">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="396.0" layoutY="667.0" mnemonicParsing="false" text="Dodaj użytkownika">
+      <Button layoutX="532.0" layoutY="616.0" mnemonicParsing="false" text="Dodaj użytkownika">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="560.0" layoutY="509.0" mnemonicParsing="false" text="Oddaj admina">
+      <Button layoutX="581.0" layoutY="414.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="163.0" text="Oddaj admina">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="176.0" layoutY="694.0" mnemonicParsing="false" text="Dodaj film">
+      <Button layoutX="231.0" layoutY="675.0" mnemonicParsing="false" text="Dodaj film">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
-      <Label alignment="CENTER_RIGHT" layoutX="43.0" layoutY="561.0" prefHeight="25.0" prefWidth="81.0" text="Tytuł">
+      <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="470.0" prefHeight="25.0" prefWidth="81.0" text="Tytuł">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="563.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="43.0" layoutY="592.0" prefHeight="25.0" prefWidth="81.0" text="Reżyser">
+      <TextField layoutX="128.0" layoutY="468.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="511.0" prefHeight="25.0" prefWidth="81.0" text="Reżyser">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="594.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="4.0" layoutY="624.0" prefHeight="25.0" prefWidth="121.0" text="Rok produkcji">
+      <TextField layoutX="128.0" layoutY="509.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="553.0" prefHeight="25.0" prefWidth="121.0" text="Rok produkcji">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="626.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="396.0" layoutY="593.0" prefHeight="25.0" prefWidth="81.0" text="Login">
+      <TextField layoutX="128.0" layoutY="551.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="396.0" layoutY="509.0" prefHeight="25.0" prefWidth="81.0" text="Login">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="481.0" layoutY="595.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="396.0" layoutY="624.0" prefHeight="25.0" prefWidth="81.0" text="Hasło">
+      <TextField layoutX="488.0" layoutY="507.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="396.0" layoutY="551.0" prefHeight="25.0" prefWidth="81.0" text="Hasło">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="481.0" layoutY="626.0" />
-      <Button layoutX="396.0" layoutY="547.0" mnemonicParsing="false" text="Awansuj na admina">
+      <TextField layoutX="488.0" layoutY="549.0" />
+      <Button layoutX="419.0" layoutY="414.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="163.0" text="Awansuj na admina">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
-      <Label alignment="CENTER_RIGHT" layoutX="4.0" layoutY="656.0" prefHeight="25.0" prefWidth="121.0" text="Kategoria">
+      <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="595.0" prefHeight="25.0" prefWidth="121.0" text="Kategoria">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="658.0" />
-      <Button layoutX="569.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" prefHeight="25.0" prefWidth="121.0" text="Anuluj">
+      <TextField layoutX="128.0" layoutY="593.0" />
+      <Button layoutX="628.0" layoutY="694.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" prefHeight="25.0" prefWidth="121.0" text="Anuluj">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
+      <Separator layoutX="-19.0" layoutY="46.0" prefHeight="19.0" prefWidth="792.0" />
+      <Separator layoutX="380.0" layoutY="55.0" orientation="VERTICAL" prefHeight="704.0" prefWidth="6.0" />
+      <TextField layoutX="128.0" layoutY="635.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="637.0" prefHeight="25.0" prefWidth="121.0" text="Cena">
+         <font>
+            <Font name="Georgia" size="17.0" />
+         </font>
+      </Label>
+      <CheckBox id="adminRightsCheckbox" layoutX="489.0" layoutY="583.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="182.0" text="Prawa Admina" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </CheckBox>
    </children>
 </AnchorPane>

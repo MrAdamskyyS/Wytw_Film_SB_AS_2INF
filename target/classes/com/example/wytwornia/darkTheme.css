@@ -6,6 +6,7 @@
     -fx-border-radius: 0;
     -fx-background-color:  #280137;
     -fx-border-color: black;
+    -fx-font-family: System;
 }
 .pane{
     -fx-padding: 0px;
@@ -61,10 +62,4 @@
     -fx-text-alignment: CENTER_LEFT;
     -fx-background-color: #530173;
     -fx-text-fill: white;
-}
-.dwfdk{
-    -fx-background-color: #530173;
-    -fx-border-width: 1.5px;
-    -fx-border-color: black;
-    -fx-text-alignment: right;
 }

@@ -100,7 +100,7 @@
                </font>
             </Button>
       
-            <TextField layoutX="-1.0" layoutY="-2.0" prefHeight="43.0" prefWidth="651.0" promptText="Wpisz tytuł..." />
+            <TextField id="searchbar" fx:id="searchbar" layoutX="-1.0" layoutY="-2.0" prefHeight="43.0" prefWidth="651.0" promptText="Wpisz tytuł..." />
             <ScrollPane fx:id="ScrollPaneFilmy" layoutX="-1.0" layoutY="39.0" prefHeight="618.0" prefWidth="1050.0">
                <content>
                   <TableView fx:id="mainFilmyTable" prefHeight="618.0" prefWidth="1050.0">
@@ -122,12 +122,12 @@
          <children>
             <AnchorPane prefHeight="649.0" prefWidth="1049.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" layoutX="49.0" layoutY="27.0" prefHeight="49.0" prefWidth="200.0" text="Tryb wyświetlania">
+                  <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="141.0" prefHeight="49.0" prefWidth="200.0" text="Tryb wyświetlania">
                      <font>
-                        <Font name="Georgia" size="23.0" />
+                        <Font size="23.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="268.0" layoutY="24.0" mnemonicParsing="false" selected="true" text="Jasny">
+                  <RadioButton layoutX="286.0" layoutY="140.0" mnemonicParsing="false" selected="true" text="Jasny">
                      <font>
                         <Font name="Georgia" size="19.0" />
                      </font>
@@ -135,17 +135,17 @@
                         <ToggleGroup fx:id="trybWyswietlania" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="268.0" layoutY="59.0" mnemonicParsing="false" text="Ciemny" toggleGroup="$trybWyswietlania">
+                  <RadioButton layoutX="286.0" layoutY="172.0" mnemonicParsing="false" text="Ciemny" toggleGroup="$trybWyswietlania">
                      <font>
                         <Font name="Georgia" size="19.0" />
                      </font>
                   </RadioButton>
-                  <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="109.0" prefHeight="49.0" prefWidth="209.0" text="Język">
+                  <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="249.0" prefHeight="49.0" prefWidth="209.0" text="Język">
                      <font>
                         <Font name="Georgia" size="23.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="268.0" layoutY="104.0" mnemonicParsing="false" selected="true" text="polski">
+                  <RadioButton layoutX="285.0" layoutY="249.0" mnemonicParsing="false" selected="true" text="polski">
                      <font>
                         <Font name="Georgia" size="19.0" />
                      </font>
@@ -153,9 +153,9 @@
                         <ToggleGroup fx:id="jezykToggle" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="268.0" layoutY="139.0" mnemonicParsing="false" text="angielski" toggleGroup="$jezykToggle">
+                  <RadioButton layoutX="285.0" layoutY="281.0" mnemonicParsing="false" text="angielski" toggleGroup="$jezykToggle">
                      <font>
-                        <Font name="Georgia" size="19.0" />
+                        <Font size="19.0" />
                      </font>
                   </RadioButton>
                </children>

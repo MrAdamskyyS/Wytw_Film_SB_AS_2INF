@@ -4,57 +4,59 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="694.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.KoszykController">
+<AnchorPane prefHeight="694.0" prefWidth="717.0" stylesheets="@darkCartTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wytwornia.KoszykController">
    <children>
-      <Label layoutX="44.0" layoutY="47.0" text="Oto filmy, które wybrałeś">
+      <Label layoutX="44.0" layoutY="11.0" text="Oto filmy, które wybrałeś">
          <font>
             <Font name="Georgia" size="23.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="35.0" layoutY="105.0">
+      <ScrollPane layoutX="35.0" layoutY="49.0" prefHeight="344.0" prefWidth="641.0">
          <content>
-            <TableView fx:id="tableViewKoszyk" prefHeight="344.0" prefWidth="359.0" stylesheets="@koszykTableView.css">
+            <TableView fx:id="tableViewKoszyk" prefHeight="344.0" prefWidth="641.0" stylesheets="@koszykTableView.css">
               <columns>
-                <TableColumn fx:id="colTitle" editable="false" prefWidth="105.0" resizable="false" text="Title" />
-                <TableColumn fx:id="colDirector" editable="false" minWidth="0.0" prefWidth="87.0" resizable="false" text="Director" />
-                  <TableColumn fx:id="colGenre" editable="false" prefWidth="97.0" resizable="false" text="Genre" />
-                  <TableColumn fx:id="colPrice" editable="false" prefWidth="69.0" resizable="false" text="Price (PLN)" />
+                <TableColumn fx:id="colTitle" editable="false" prefWidth="228.0" resizable="false" text="Title" />
+                <TableColumn fx:id="colDirector" editable="false" minWidth="0.0" prefWidth="116.0" resizable="false" text="Director" />
+                  <TableColumn fx:id="colGenre" editable="false" prefWidth="138.0" resizable="false" text="Genre" />
+                  <TableColumn fx:id="colPrice" editable="false" prefWidth="158.0" resizable="false" text="Price (PLN)" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
-      <Label layoutX="417.0" layoutY="483.0" text="Podsumowanie">
+      <Label layoutX="427.0" layoutY="439.0" text="Podsumowanie">
          <font>
             <Font name="Georgia" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="417.0" layoutY="509.0" prefHeight="26.0" prefWidth="89.0" text="Do zapłaty:">
+      <Label layoutX="429.0" layoutY="473.0" prefHeight="26.0" prefWidth="89.0" text="Do zapłaty:">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="417.0" layoutY="536.0" prefHeight="26.0" prefWidth="130.0" text="Metoda płatności">
+      <Label layoutX="429.0" layoutY="499.0" prefHeight="26.0" prefWidth="130.0" text="Metoda płatności">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="radioPortfel" layoutX="429.0" layoutY="567.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="119.0" selected="true" text="Portfel (dostępne:">
+      <RadioButton fx:id="radioPortfel" layoutX="427.0" layoutY="525.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="119.0" selected="true" text="Portfel (dostępne:">
          <toggleGroup>
             <ToggleGroup fx:id="paymentMethod" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="radioVisa" layoutX="429.0" layoutY="590.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Karta VISA" toggleGroup="$paymentMethod" />
-      <Label fx:id="lblDoZaplatyAmount" layoutX="504.0" layoutY="515.0" prefHeight="17.0" prefWidth="82.0" />
-      <RadioButton fx:id="radioPrzelewy24" layoutX="429.0" layoutY="612.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="przelewy24" toggleGroup="$paymentMethod" />
-      <Label fx:id="lblDostepneSrodki" layoutX="548.0" layoutY="568.0" />
-      <Button layoutX="423.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnZaplac" text="Zapłać" />
-      <Button layoutX="486.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" text="Anuluj" />
-      <Button layoutX="35.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnUsunZKoszyka" prefHeight="25.0" prefWidth="144.0" text="Usuń z koszyka" />
+      <RadioButton fx:id="radioVisa" layoutX="427.0" layoutY="548.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Karta VISA" toggleGroup="$paymentMethod" />
+      <Label fx:id="lblDoZaplatyAmount" layoutX="512.0" layoutY="478.0" prefHeight="17.0" prefWidth="89.0" />
+      <RadioButton fx:id="radioPrzelewy24" layoutX="427.0" layoutY="570.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="przelewy24" toggleGroup="$paymentMethod" />
+      <Label fx:id="lblDostepneSrodki" layoutX="548.0" layoutY="525.0" prefHeight="20.0" prefWidth="44.0" />
+      <Button layoutX="428.0" layoutY="596.0" mnemonicParsing="false" onAction="#btnZaplac" prefWidth="89.0" text="Zapłać" />
+      <Button layoutX="526.0" layoutY="596.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" prefWidth="89.0" text="Anuluj" />
+      <Button layoutX="532.0" layoutY="393.0" mnemonicParsing="false" onAction="#btnUsunZKoszyka" prefHeight="25.0" prefWidth="144.0" text="Usuń z koszyka" />
+      <Separator layoutX="-7.0" layoutY="422.0" prefHeight="17.0" prefWidth="724.0" />
    </children>
 </AnchorPane>
