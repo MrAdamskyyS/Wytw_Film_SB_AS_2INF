@@ -37,7 +37,7 @@ public  class MainController  implements Initializable {
     public TableColumn<Film, String> colGenre;
     public TableColumn<Film, String> colPrice;
     private Object[] filmy;
-    private ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
+    public static ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
 
 
 
@@ -64,6 +64,7 @@ public  class MainController  implements Initializable {
     }
 
     private void initializeTable() {
+        listaFilmow.clear();
         colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
         colDirector.setCellValueFactory(new PropertyValueFactory<>("Director"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("Genre"));

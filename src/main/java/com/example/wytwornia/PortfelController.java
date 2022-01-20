@@ -29,7 +29,7 @@ public class PortfelController implements Initializable {
     public void btnAnulujOnAction(ActionEvent event) {
       MainController.btnAnulujOnAction(event);
     }
-    public boolean isNumeric(String str) { // sprawdzamy czy string jest numerem i czy jest dodatnia
+    private  boolean isNumeric(String str) { // sprawdzamy czy string jest floatem i czy jest dodatni
         try {
             if(Float.parseFloat(str)>0)
             return true;

@@ -78,7 +78,7 @@
             <Font name="System" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="231.0" layoutY="675.0" mnemonicParsing="false" text="Dodaj film">
+      <Button layoutX="231.0" layoutY="675.0" mnemonicParsing="false" onAction="#btnDodajFilm" text="Dodaj film">
          <font>
             <Font name="System" size="16.0" />
          </font>
@@ -88,19 +88,19 @@
             <Font name="System" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="468.0" />
+      <TextField fx:id="txtFieldTitle" layoutX="128.0" layoutY="468.0" />
       <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="511.0" prefHeight="25.0" prefWidth="81.0" text="Reżyser">
          <font>
             <Font name="System" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="509.0" />
+      <TextField fx:id="txtFieldDirector" layoutX="128.0" layoutY="509.0" />
       <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="553.0" prefHeight="25.0" prefWidth="121.0" text="Rok produkcji">
          <font>
             <Font name="System" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="551.0" />
+      <TextField fx:id="txtFieldYear" layoutX="128.0" layoutY="551.0" />
       <Label alignment="CENTER_RIGHT" layoutX="396.0" layoutY="509.0" prefHeight="25.0" prefWidth="81.0" text="Login">
          <font>
             <Font name="System" size="17.0" />
@@ -123,7 +123,7 @@
             <Font name="System" size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="128.0" layoutY="593.0" />
+      <TextField fx:id="txtFieldGenre" layoutX="128.0" layoutY="593.0" />
       <Button layoutX="628.0" layoutY="694.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" prefHeight="25.0" prefWidth="121.0" text="Anuluj">
          <font>
             <Font name="System" size="16.0" />
@@ -131,7 +131,7 @@
       </Button>
       <Separator layoutX="-19.0" layoutY="46.0" prefHeight="19.0" prefWidth="792.0" />
       <Separator layoutX="380.0" layoutY="55.0" orientation="VERTICAL" prefHeight="704.0" prefWidth="6.0" />
-      <TextField layoutX="128.0" layoutY="635.0" />
+      <TextField fx:id="txtFieldPrice" layoutX="128.0" layoutY="635.0" />
       <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="637.0" prefHeight="25.0" prefWidth="121.0" text="Cena">
          <font>
             <Font name="System" size="17.0" />
