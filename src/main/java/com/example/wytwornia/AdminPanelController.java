@@ -2,19 +2,51 @@ package com.example.wytwornia;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 
-public class AdminPanelController {
+public class AdminPanelController implements Initializable {
     public TextField txtFieldCompanyName;
     public TextField txtFieldTitle;
     public TextField txtFieldDirector;
     public TextField txtFieldYear;
     public TextField txtFieldGenre;
     public TextField txtFieldPrice;
+    public TableView tableViewFilmyAdminPanel;
+    public TableView tableViewUsersAdminPanel;
+    public TableColumn<Film, String> colTitle;
+    public TableColumn<Film, String> colPrice;
+    public TableColumn<User, String> colLogin;
+    public TableColumn<User, String> colPassword;
+    public TableColumn<User, String> colAdmin;
 
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeMoviesTable();
+        initializeUsersTable();
+    }
+
+    public void initializeUsersTable(){
+        colLogin.setCellValueFactory(new PropertyValueFactory<>("Login"));
+        colPassword.setCellValueFactory(new PropertyValueFactory<>("Password"));
+        colAdmin.setCellValueFactory(new PropertyValueFactory<>("Admin"));
+        tableViewUsersAdminPanel.setItems(MainController.listaUzytkownikow);
+
+    }
+
+    public void initializeMoviesTable(){
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        tableViewFilmyAdminPanel.setItems(MainController.listaFilmow);
+    }
 
     @FXML
     public void btnAnulujOnAction(ActionEvent event) {

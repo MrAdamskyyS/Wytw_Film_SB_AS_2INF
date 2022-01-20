@@ -36,8 +36,8 @@ public  class MainController  implements Initializable {
     public TableColumn<Film, String> colDirector;
     public TableColumn<Film, String> colGenre;
     public TableColumn<Film, String> colPrice;
-    private Object[] filmy;
     public static ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
+    public static ObservableList<User> listaUzytkownikow = FXCollections.observableArrayList(); //lista uzytkownikow tutaj, bo w admin panelu by sie za kazdym razem inicjalizowala przy odpaleniu
 
 
 
@@ -46,7 +46,10 @@ public  class MainController  implements Initializable {
         adminVisibility();
         initializeText();
        initializeTable();
+       initializeUsers();
     }
+
+
 
     private void adminVisibility(){
         if(LoginController.user.getAdmin() == 1)  btnAdminPanel.setVisible(true);   // przyznanie adminowi dostepu do "admin panel"
@@ -71,7 +74,8 @@ public  class MainController  implements Initializable {
         colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         try {
-            filmy = LoginController.connection.returnFilmy();
+
+            Object[] filmy = LoginController.connection.returnFilmy();
             String[] titleArray = (String[]) filmy[0];
             String[] directorArray = (String[]) filmy[1];
             String[] genreArray = (String[]) filmy[2];
@@ -175,5 +179,24 @@ public  class MainController  implements Initializable {
         else
             AlertBox.display("Nie wybrano filmu", "Błąd");
 }
+
+    private void initializeUsers() {
+        if(LoginController.user.getAdmin()==1){
+
+            try {
+                Object[] users = LoginController.connection.returnUsers();
+                String[] loginArray = (String[]) users[0];
+                String[] passwordArray = (String[]) users[1];
+                Integer[] adminArray = (Integer[]) users[2];
+
+                for (int i = 0; i < loginArray.length; i++){
+                    listaUzytkownikow.add(new User(loginArray[i],passwordArray[i],adminArray[i]));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 }

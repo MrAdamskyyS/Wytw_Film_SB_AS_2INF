@@ -46,7 +46,7 @@ public class DatabaseConnection {
                     priceMovie[i] = resultSet.getFloat("Price");
                     resultSet.next();
             }
-                 Object[] filmy = new Object[rowCount];
+                 Object[] filmy = new Object[4];
                  filmy[0] = titleMovie;  // pierwszy element tablicy typu Object to tablica typu String titleMovie zawierajaca tytuly
                  filmy[1] = directorMovie; // drugi element tablicy typu Object to tablica typu String directorMovie zawierajaca rezyserow
                  filmy[2] = genreMovie; // trzeci element tablicy typu Object to tablica typu String genreMovie zawierajaca gatunek filmu
@@ -54,6 +54,35 @@ public class DatabaseConnection {
             return filmy;
         }
         return null;
+    }
+
+    public Object[] returnUsers() throws SQLException {
+        Statement tempStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE); // robimy nowy statement typu scroll insensitive, ktory nam  pozwoli sie przenosic na poczatek i koniec wynikow
+        //nie uzywamy prywatnej zmiennej statement, bo to ustawi nam wszystkie nastepne statementy na scroll insensitive, i musielibysmy w kazdej metodzie robic statement = connection.createStatement();, zeby znowu byly forward only
+        resultSet = tempStatement.executeQuery("SELECT * FROM `users`");
+        if (resultSet.next()) {
+            resultSet.last(); // ustawiamy na ostatni element
+            int rowCount = resultSet.getRow();// rowCount to numer rzędu ostatniego elementu, stad wiemy ile jest wyników
+            String[] userLogin = new String[rowCount];
+            String[] userPassword = new String[rowCount];
+            Integer[] userAdmin = new Integer[rowCount];
+            resultSet.first(); // przesuwamy kursor znowu na poczatek
+
+            for (int i = 0; i < rowCount; i++) {
+                userLogin[i] = resultSet.getString("Login");
+                userPassword[i] = resultSet.getString("Password");
+                userAdmin[i] = resultSet.getInt("Admin");
+                resultSet.next();
+            }
+            Object[] uzytkownicy = new Object[3];
+            uzytkownicy[0] = userLogin;
+            uzytkownicy[1] = userPassword;
+            uzytkownicy[2] = userAdmin;
+
+            return uzytkownicy;
+        }
+        return null;
+
     }
 
 
@@ -87,4 +116,6 @@ public class DatabaseConnection {
         }
         return null;
     }
+
+
 }

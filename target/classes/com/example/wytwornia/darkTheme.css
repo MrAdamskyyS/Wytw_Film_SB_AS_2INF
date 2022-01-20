@@ -35,7 +35,7 @@
     -fx-pref-height: 45px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
 
 }
 .table-view .cell{

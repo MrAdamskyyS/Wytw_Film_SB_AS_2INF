@@ -63,6 +63,13 @@ public class User {
         this.settings = settings;
         this.wallet = wallet;
         this.koszyk = FXCollections.observableArrayList();
+    } public User(String login, String password, int admin){
+        this.login = login;
+        this.password = password;
+        this.admin = admin;
+        this.settings = 0;
+        this.wallet = 0;
+        this.koszyk = null;
     }
 
 

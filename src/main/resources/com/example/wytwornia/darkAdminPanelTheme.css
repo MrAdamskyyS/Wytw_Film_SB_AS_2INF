@@ -43,9 +43,28 @@
     -fx-alignment: CENTER_LEFT;
 
 }
-.table-view .cell{
+
+#usersTable .cell{
     -fx-pref-height: 30px;
-    -fx-pref-width: 262.25px;
+    -fx-pref-width: 11.3em;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: white;
+    -fx-border-insets: 0px;
+    -fx-border-width: 0.02px;
+}
+#usersTable .label {
+    -fx-font-size: 10px;
+    -fx-alignment: CENTER;
+}
+
+#moviesTable .label {
+        -fx-font-size: 14px;
+    -fx-alignment: CENTER;
+}
+#moviesTable .cell{
+    -fx-pref-height: 30px;
+    -fx-pref-width: 20em;
     -fx-text-fill: white;
     -fx-alignment: CENTER_LEFT;
     -fx-border-color: white;

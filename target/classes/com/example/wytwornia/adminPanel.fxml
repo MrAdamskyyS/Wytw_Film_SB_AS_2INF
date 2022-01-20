@@ -24,10 +24,10 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="324.0">
                <children>
-                  <TableView prefHeight="304.0" prefWidth="326.0">
+                  <TableView id="moviesTable" fx:id="tableViewFilmyAdminPanel" prefHeight="304.0" prefWidth="326.0">
                     <columns>
-                      <TableColumn prefWidth="156.0" text="C1" />
-                      <TableColumn prefWidth="169.0" text="C2" />
+                      <TableColumn fx:id="colTitle" prefWidth="243.0" text="Title" />
+                        <TableColumn fx:id="colPrice" minWidth="0.0" prefWidth="82.0" text="Price (PLN)" />
                     </columns>
                   </TableView>
                </children>
@@ -38,10 +38,11 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="324.0">
                <children>
-                  <TableView prefHeight="304.0" prefWidth="326.0">
+                  <TableView id="usersTable" fx:id="tableViewUsersAdminPanel" prefHeight="304.0" prefWidth="326.0">
                     <columns>
-                      <TableColumn prefWidth="167.0" text="C1" />
-                      <TableColumn prefWidth="158.0" text="C2" />
+                      <TableColumn fx:id="colLogin" prefWidth="132.0" text="Login" />
+                      <TableColumn fx:id="colPassword" prefWidth="140.0" text="Password" />
+                        <TableColumn fx:id="colAdmin" minWidth="0.0" prefWidth="53.0" text="Admin" />
                     </columns>
                   </TableView>
                </children>
