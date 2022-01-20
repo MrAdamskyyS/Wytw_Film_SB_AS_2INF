@@ -89,6 +89,19 @@ public class AdminPanelController implements Initializable {
        }
    }
 
+   @FXML
+   public void btnUsunUzytkownika() throws SQLException {
+
+       if(!tableViewUsersAdminPanel.getSelectionModel().isEmpty()) {
+           User temp = (User)tableViewUsersAdminPanel.getSelectionModel().getSelectedItem();
+           MainController.listaUzytkownikow.remove(tableViewUsersAdminPanel.getSelectionModel().getFocusedIndex());
+           LoginController.connection.insertQuery("DELETE FROM `users` WHERE `Login` = \""+temp.getLogin()+"\"");
+           AlertBox.display("Usunięto użytkownika "+temp.getLogin(), "Sukces");
+       } else AlertBox.display("Nie wybrałeś żadnego użytkownika", "Błąd");
+   }
+
+
+
     @FXML
     public void btnDodajFilm() throws SQLException {
 String title = txtFieldTitle.getText();
