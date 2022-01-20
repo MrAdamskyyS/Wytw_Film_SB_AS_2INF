@@ -3,6 +3,7 @@ package com.example.wytwornia;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -27,6 +28,9 @@ public class AdminPanelController implements Initializable {
     public TableColumn<User, String> colLogin;
     public TableColumn<User, String> colPassword;
     public TableColumn<User, String> colAdmin;
+    public TextField txtFieldLogin;
+    public TextField txtFieldPassword;
+    public CheckBox checkBoxAdmin;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,6 +67,28 @@ public class AdminPanelController implements Initializable {
         MainController.btnAnulujOnAction(event);
     }
 
+   @FXML
+   public void btnDodajUzytkownika(){
+       String login = txtFieldLogin.getText();
+       String password = txtFieldPassword.getText();
+       if (login.isEmpty() || password.isEmpty()) {
+           AlertBox.display("Podaj login i hasło", "Błąd");
+           return;
+       }
+       try {
+           boolean validData = LoginController.connection.checkForResultsQuery("select login from users where login=\"" + login + "\";");
+           int admin;
+           if(checkBoxAdmin.isSelected()) admin = 1; else admin = 0;
+           if (!validData) { // jezeli nie ma takiego usera, to go dodaj
+               LoginController.connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '"+login+"', '"+password+"', '11', '0', '"+admin+"')");
+               MainController.listaUzytkownikow.add(new User(login,password,admin));
+           } else AlertBox.display("Taki użytkownik już istnieje", "Błąd");
+       }
+       catch (Exception e) {
+           e.printStackTrace();
+       }
+   }
+
     @FXML
     public void btnDodajFilm() throws SQLException {
 String title = txtFieldTitle.getText();
@@ -84,6 +110,19 @@ if(isValidYear(year) && isValidPrice(price)) { // najpierw sprawdzamy czy rok i 
 }
 
     }
+
+    @FXML
+    public void btnChangeCompanyName() {
+        try {
+            LoginController.connection.insertQuery("UPDATE `nazwafirmy` SET `NazwaFirmy` = '"+txtFieldCompanyName.getText()+"' WHERE `ID` =1;");
+            AlertBox.display("Pomyślnie zmieniono nazwę firmy na: "+txtFieldCompanyName.getText()+"!","Sukces");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     private boolean isValidYear(String s) {
         try{
@@ -110,14 +149,4 @@ if(isValidYear(year) && isValidPrice(price)) { // najpierw sprawdzamy czy rok i 
                 return false; // false jezeli float bedzie ujemny
             }
 
-    public void btnChangeCompanyName() {
-        try {
-            LoginController.connection.insertQuery("UPDATE `nazwafirmy` SET `NazwaFirmy` = '"+txtFieldCompanyName.getText()+"' WHERE `ID` =1;");
-            AlertBox.display("Pomyślnie zmieniono nazwę firmy na: "+txtFieldCompanyName.getText()+"!","Sukces");
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 }

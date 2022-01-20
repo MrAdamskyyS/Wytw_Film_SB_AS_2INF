@@ -182,7 +182,7 @@ public  class MainController  implements Initializable {
 
     private void initializeUsers() {
         if(LoginController.user.getAdmin()==1){
-
+            listaUzytkownikow.clear();
             try {
                 Object[] users = LoginController.connection.returnUsers();
                 String[] loginArray = (String[]) users[0];
