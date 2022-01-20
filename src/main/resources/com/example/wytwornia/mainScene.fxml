@@ -129,7 +129,7 @@
                   </Label>
                   <RadioButton layoutX="286.0" layoutY="140.0" mnemonicParsing="false" selected="true" text="Jasny">
                      <font>
-                        <Font name="Georgia" size="19.0" />
+                        <Font name="System" size="19.0" />
                      </font>
                      <toggleGroup>
                         <ToggleGroup fx:id="trybWyswietlania" />
@@ -137,17 +137,17 @@
                   </RadioButton>
                   <RadioButton layoutX="286.0" layoutY="172.0" mnemonicParsing="false" text="Ciemny" toggleGroup="$trybWyswietlania">
                      <font>
-                        <Font name="Georgia" size="19.0" />
+                        <Font name="System" size="19.0" />
                      </font>
                   </RadioButton>
                   <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="249.0" prefHeight="49.0" prefWidth="209.0" text="Język">
                      <font>
-                        <Font name="Georgia" size="23.0" />
+                        <Font name="System" size="23.0" />
                      </font>
                   </Label>
                   <RadioButton layoutX="285.0" layoutY="249.0" mnemonicParsing="false" selected="true" text="polski">
                      <font>
-                        <Font name="Georgia" size="19.0" />
+                        <Font name="System" size="19.0" />
                      </font>
                      <toggleGroup>
                         <ToggleGroup fx:id="jezykToggle" />

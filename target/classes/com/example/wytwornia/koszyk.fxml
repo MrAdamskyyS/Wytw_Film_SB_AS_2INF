@@ -15,7 +15,7 @@
    <children>
       <Label layoutX="44.0" layoutY="11.0" text="Oto filmy, które wybrałeś">
          <font>
-            <Font name="Georgia" size="23.0" />
+            <Font name="System" size="23.0" />
          </font>
       </Label>
       <ScrollPane layoutX="35.0" layoutY="49.0" prefHeight="344.0" prefWidth="641.0">
@@ -32,17 +32,17 @@
       </ScrollPane>
       <Label layoutX="427.0" layoutY="439.0" text="Podsumowanie">
          <font>
-            <Font name="Georgia" size="23.0" />
+            <Font name="System" size="23.0" />
          </font>
       </Label>
       <Label layoutX="429.0" layoutY="473.0" prefHeight="26.0" prefWidth="89.0" text="Do zapłaty:">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Label>
       <Label layoutX="429.0" layoutY="499.0" prefHeight="26.0" prefWidth="130.0" text="Metoda płatności">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Label>
       <RadioButton fx:id="radioPortfel" layoutX="427.0" layoutY="525.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="119.0" selected="true" text="Portfel (dostępne:">

@@ -12,22 +12,22 @@
    <children>
       <Label layoutX="83.0" layoutY="70.0" prefHeight="39.0" prefWidth="260.0" text="Dostępne środki: " textAlignment="CENTER">
          <font>
-            <Font name="Georgia" size="26.0" />
+            <Font name="System" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="labelPortfelAmount" layoutX="289.0" layoutY="76.0" text="0" textAlignment="CENTER">
+      <Label fx:id="labelPortfelAmount" layoutX="283.0" layoutY="73.0" prefHeight="38.0" prefWidth="107.0" text="0" textAlignment="CENTER">
          <font>
-            <Font name="Georgia" size="26.0" />
+            <Font name="System" size="26.0" />
          </font>
       </Label>
       <Label layoutX="93.0" layoutY="134.0" prefHeight="30.0" prefWidth="76.0" text="Kwota" textAlignment="CENTER">
          <font>
-            <Font name="Georgia" size="25.0" />
+            <Font name="System" size="25.0" />
          </font>
       </Label>
       <TextField fx:id="kwotaAmount" alignment="CENTER_RIGHT" layoutX="169.0" layoutY="135.0" prefHeight="29.0" prefWidth="149.0">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </TextField>
       <Button layoutX="236.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnPortfelWyplata" text="Wypłata" />
@@ -41,7 +41,7 @@
       <Button layoutX="165.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnPortfelWplata" text="Wpłata" />
       <Label layoutX="324.0" layoutY="134.0" prefHeight="25.0" prefWidth="60.0" text="zł" textAlignment="CENTER">
          <font>
-            <Font name="Georgia" size="25.0" />
+            <Font name="System" size="25.0" />
          </font>
       </Label>
    </children>

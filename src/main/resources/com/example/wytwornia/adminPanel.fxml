@@ -15,7 +15,7 @@
    <children>
       <Label layoutX="25.0" layoutY="-2.0" prefHeight="65.0" prefWidth="154.0" text="Nazwa firmy">
          <font>
-            <Font name="Georgia" size="21.0" />
+            <Font name="System" size="21.0" />
          </font>
       </Label>
       <TextField id="txtFieldCompanyName" fx:id="txtFieldCompanyName" layoutX="146.0" layoutY="18.0" />
@@ -50,83 +50,83 @@
       </ScrollPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="62.0" prefHeight="17.0" prefWidth="89.0" text="Filmy">
          <font>
-            <Font name="Georgia" size="24.0" />
+            <Font name="System" size="24.0" />
          </font>
       </Label>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="488.0" layoutY="62.0" prefHeight="29.0" prefWidth="163.0" text="Użytkownicy">
          <font>
-            <Font name="Georgia" size="24.0" />
+            <Font name="System" size="24.0" />
          </font>
       </Label>
       <Button layoutX="254.0" layoutY="414.0" mnemonicParsing="false" text="Usuń film">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Button>
       <Button layoutX="504.0" layoutY="451.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="154.0" text="Usuń użytkownika">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Button>
       <Button layoutX="532.0" layoutY="616.0" mnemonicParsing="false" text="Dodaj użytkownika">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Button>
       <Button layoutX="581.0" layoutY="414.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="163.0" text="Oddaj admina">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Button>
       <Button layoutX="231.0" layoutY="675.0" mnemonicParsing="false" text="Dodaj film">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Button>
       <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="470.0" prefHeight="25.0" prefWidth="81.0" text="Tytuł">
          <font>
-            <Font name="Georgia" size="17.0" />
+            <Font name="System" size="17.0" />
          </font>
       </Label>
       <TextField layoutX="128.0" layoutY="468.0" />
       <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="511.0" prefHeight="25.0" prefWidth="81.0" text="Reżyser">
          <font>
-            <Font name="Georgia" size="17.0" />
+            <Font name="System" size="17.0" />
          </font>
       </Label>
       <TextField layoutX="128.0" layoutY="509.0" />
       <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="553.0" prefHeight="25.0" prefWidth="121.0" text="Rok produkcji">
          <font>
-            <Font name="Georgia" size="17.0" />
+            <Font name="System" size="17.0" />
          </font>
       </Label>
       <TextField layoutX="128.0" layoutY="551.0" />
       <Label alignment="CENTER_RIGHT" layoutX="396.0" layoutY="509.0" prefHeight="25.0" prefWidth="81.0" text="Login">
          <font>
-            <Font name="Georgia" size="17.0" />
+            <Font name="System" size="17.0" />
          </font>
       </Label>
       <TextField layoutX="488.0" layoutY="507.0" />
       <Label alignment="CENTER_RIGHT" layoutX="396.0" layoutY="551.0" prefHeight="25.0" prefWidth="81.0" text="Hasło">
          <font>
-            <Font name="Georgia" size="17.0" />
+            <Font name="System" size="17.0" />
          </font>
       </Label>
       <TextField layoutX="488.0" layoutY="549.0" />
       <Button layoutX="419.0" layoutY="414.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="163.0" text="Awansuj na admina">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Button>
       <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="595.0" prefHeight="25.0" prefWidth="121.0" text="Kategoria">
          <font>
-            <Font name="Georgia" size="17.0" />
+            <Font name="System" size="17.0" />
          </font>
       </Label>
       <TextField layoutX="128.0" layoutY="593.0" />
       <Button layoutX="628.0" layoutY="694.0" mnemonicParsing="false" onAction="#btnAnulujOnAction" prefHeight="25.0" prefWidth="121.0" text="Anuluj">
          <font>
-            <Font name="Georgia" size="16.0" />
+            <Font name="System" size="16.0" />
          </font>
       </Button>
       <Separator layoutX="-19.0" layoutY="46.0" prefHeight="19.0" prefWidth="792.0" />
@@ -134,7 +134,7 @@
       <TextField layoutX="128.0" layoutY="635.0" />
       <Label alignment="CENTER_RIGHT" layoutX="-8.0" layoutY="637.0" prefHeight="25.0" prefWidth="121.0" text="Cena">
          <font>
-            <Font name="Georgia" size="17.0" />
+            <Font name="System" size="17.0" />
          </font>
       </Label>
       <CheckBox id="adminRightsCheckbox" layoutX="489.0" layoutY="583.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="182.0" text="Prawa Admina" textFill="WHITE">
