@@ -67,3 +67,7 @@
     -fx-background-color: #530173;
     -fx-text-fill: white;
 }
++.table-view .cell{
+    -fx-pref-width: 15.4em;
+
+}
