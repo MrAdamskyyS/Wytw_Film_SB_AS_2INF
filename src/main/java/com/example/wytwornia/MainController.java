@@ -1,17 +1,23 @@
 package com.example.wytwornia;
 
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -19,6 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.security.spec.ECField;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 
@@ -36,17 +43,22 @@ public  class MainController  implements Initializable {
     public TableColumn<Film, String> colDirector;
     public TableColumn<Film, String> colGenre;
     public TableColumn<Film, String> colPrice;
+    public AnchorPane mainRootPane;
+    public TextField searchbar;
     public static ObservableList<Film> listaFilmow = FXCollections.observableArrayList();
     public static ObservableList<User> listaUzytkownikow = FXCollections.observableArrayList(); //lista uzytkownikow tutaj, bo w admin panelu by sie za kazdym razem inicjalizowala przy odpaleniu
+    public String fileMenuName;
 
 
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         adminVisibility();
         initializeText();
        initializeTable();
        initializeUsers();
+
     }
 
 
@@ -87,12 +99,34 @@ public  class MainController  implements Initializable {
             e.printStackTrace();
         }
         mainFilmyTable.setItems(listaFilmow);
+
+        //Wyszukiwanie
+
+        FilteredList<Film> filteredList = new FilteredList<>(listaFilmow, b->true);
+        searchbar.textProperty().addListener((observable, oldValue, newValue)-> {
+           filteredList.setPredicate(filmSearch -> {
+               if(newValue.isEmpty() || newValue.isBlank() || newValue==null){
+                   return true;
+               }
+               String searchKeyword = newValue.toLowerCase();
+               if(filmSearch.getTitle().toLowerCase().indexOf(searchKeyword)!=-1){
+                   return true;
+               } else
+                   return false;
+
+           });
+        });
+        SortedList<Film> sortedData = new SortedList<>(filteredList);
+        sortedData.comparatorProperty().bind(mainFilmyTable.comparatorProperty());
+        mainFilmyTable.setItems(sortedData);
+
 }
 
     @FXML
     private void btnUstawieniaAction() {
         paneFilmy.setVisible(false);
         paneUstawienia.setVisible(true);
+
     }
 
     private void newWindow(String file) {
@@ -179,7 +213,16 @@ public  class MainController  implements Initializable {
         else
             AlertBox.display("Nie wybrano filmu", "Błąd");
 }
+/*
+    private void setStyleAndLanguage(){
+        switch(LoginController.user.getSettings()){
+            case 11:
+                mainRootPane.getStyleClass().add("whiteTheme.css");
 
+
+        }
+    }
+*/
     private void initializeUsers() {
         if(LoginController.user.getAdmin()==1){
             listaUzytkownikow.clear();

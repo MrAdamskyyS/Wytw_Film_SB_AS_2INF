@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: #15202b;
+    -fx-background-color: #FFFFFF;
 }
 
 .button {
@@ -10,14 +10,17 @@
 
 }
 .label{
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-family: System;
+}
+.radio-button{
+    -fx-text-fill: black;
 }
 .pane{
     -fx-padding: 0px;
 }
-.radio-button{
-    -fx-text-fill: white;
+.check-box{
+    -fx-text-fill: black;
 }
 .scroll-pane{
     -fx-padding: 0px;
@@ -36,7 +39,7 @@
     -fx-border-width: 0.6px;
 }
 .table-view .column-header .label{
-    -fx-font-size: 15px;
+    -fx-font-size: 25px;
     -fx-pref-height: 45px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
@@ -46,26 +49,16 @@
 .table-view .cell{
     -fx-pref-height: 30px;
     -fx-pref-width: 262.25px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-alignment: CENTER_LEFT;
-    -fx-border-color: white;
+    -fx-border-color: black;
     -fx-border-insets: 0px;
     -fx-border-width: 0.02px;
 }
-.ScrollPane, .table-row-cell:selected {
+.table-row-cell:selected {
     -fx-background-color: #8e7796 !important;
-}
-.table-row-cell {
-    -fx-background-color: #15202b;
-
-}
-.table-view .cell{
-    -fx-pref-width: 15.4em;
-
-}
-
-.table-view:row-selection {
-    -fx-background-color: #15202b;
+}.table-row-cell {
+    -fx-background-color: white;
 }
 .text-field{
     -fx-font-size: 10px;

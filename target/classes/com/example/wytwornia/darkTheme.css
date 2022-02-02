@@ -41,6 +41,7 @@
 .table-view .cell{
     -fx-pref-height: 30px;
     -fx-pref-width: 262.25px;
+    -fx-background-color: #15202b;
     -fx-text-fill: white;
     -fx-alignment: CENTER_LEFT;
     -fx-border-color: white;
@@ -49,7 +50,9 @@
     -fx-font-size: 16px;
 }
 
-
+.table-view:row-selection {
+    -fx-background-color: #15202b;
+}
 .table-row-cell:selected {
     -fx-background-color: #8e7796 !important;
 }.table-row-cell {
