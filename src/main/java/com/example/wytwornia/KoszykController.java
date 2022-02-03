@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class KoszykController implements Initializable {
@@ -18,15 +19,26 @@ public class KoszykController implements Initializable {
     public TableColumn<Film, String> colGenre;
     public TableColumn<Film, String> colPrice;
     public Label lblDoZaplatyAmount;
+    public Label labelInitial;
+    public Label labelPodsumowanie;
+    public Label labelDoZaplaty;
+    public Label labelMetodaPlatnosci;
+    public Button buttonUsunZKoszyka;
+    public Button buttonZaplac;
+    public Button buttonAnuluj;
     public Label lblDostepneSrodki;
     public RadioButton radioPortfel;
+    public RadioButton radioVisa;
     private  float sum = 0;
+    private ResourceBundle bundle;
+    private Locale locale;
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeTable();
         setSumOfPrices();
         initializeText();
+        setStyleAndLanguage();
     }
 
     public void setSumOfPrices(){
@@ -94,4 +106,52 @@ public class KoszykController implements Initializable {
             AlertBox.display("Koszyk jest pusty", "Błąd");
         }
     }
+
+    private void setLang(ResourceBundle bundle){
+        labelInitial.setText(bundle.getString("cartLabelInitial"));
+        colTitle.setText(bundle.getString("cartColTitle"));
+        colDirector.setText(bundle.getString("cartColDirector"));
+        colGenre.setText(bundle.getString("cartColGenre"));
+        colPrice.setText(bundle.getString("cartColPrice"));
+        buttonUsunZKoszyka.setText(bundle.getString("cartButtonDelete"));
+        labelPodsumowanie.setText(bundle.getString("cartLabelSummary"));
+        labelDoZaplaty.setText(bundle.getString("cartLabelTotal"));
+        labelMetodaPlatnosci.setText(bundle.getString("cartLabelPaymentMethod"));
+        radioPortfel.setText(bundle.getString("cartWallet"));
+        radioVisa.setText(bundle.getString("radioVisa"));
+        buttonZaplac.setText(bundle.getString("cartPay"));
+        buttonAnuluj.setText(bundle.getString("walletCancel"));
+
+    }
+
+    private void setStyleAndLanguage(){
+        switch(LoginController.user.getSettings()){
+            case 11:
+                //  white theme + pl
+                locale = new Locale("pl");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 12:
+                // white theme + en
+                locale = new Locale("en");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 21:
+                // dark theme + pl
+                locale = new Locale("pl");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 22:
+                // dark theme + en
+                locale = new Locale("en");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+        }
+    }
+
+
 }

@@ -2,13 +2,12 @@ package com.example.wytwornia;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 
@@ -17,9 +16,22 @@ import java.util.ResourceBundle;
 public class PortfelController implements Initializable {
     public Label labelPortfelAmount;
     public TextField kwotaAmount;
+    private ResourceBundle bundle;
+    private Locale locale;
+    public Label labelDostepneSrodki;
+    public Label labelKwota;
+    public Label labelWaluta;
+    public Button buttonWplata;
+    public Button buttonWyplata;
+    public Button buttonAnuluj;
+    public RadioButton radioVisa;
+
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {initializeText();}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeText();
+        setStyleAndLanguage();
+    }
 
     private void initializeText(){
         labelPortfelAmount.setText(String.valueOf(LoginController.user.getWallet())); // wartosc portfela z obiektu user
@@ -81,6 +93,45 @@ public class PortfelController implements Initializable {
         AlertBox.display("Pomyślnie wpłaciłeś: "+kwotaAmount.getText()+"zł","Sukces");
         return;
 
+    }
+
+    private void setLang(ResourceBundle bundle){
+        labelDostepneSrodki.setText(bundle.getString("walletCredits"));
+        labelKwota.setText(bundle.getString("walletAmount"));
+        labelWaluta.setText(bundle.getString("walletCurrency"));
+        buttonWplata.setText(bundle.getString("walletDeposit"));
+        buttonWyplata.setText(bundle.getString("walletWithdraw"));
+        buttonAnuluj.setText(bundle.getString("walletCancel"));
+        radioVisa.setText(bundle.getString("radioVisa"));
+    }
+
+    private void setStyleAndLanguage(){
+        switch(LoginController.user.getSettings()){
+            case 11:
+                //  white theme + pl
+                locale = new Locale("pl");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 12:
+                // white theme + en
+                locale = new Locale("en");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 21:
+                // dark theme + pl
+                locale = new Locale("pl");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 22:
+                // dark theme + en
+                locale = new Locale("en");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+        }
     }
 
 

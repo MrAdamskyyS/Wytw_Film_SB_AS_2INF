@@ -3,18 +3,33 @@ package com.example.wytwornia;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 
 public class AdminPanelController implements Initializable {
+    public Label labelNazwaFirmy;
+    public Label labelFilmy;
+    public Label labelUzytkownicy;
+    public Label labelTytul;
+    public Label labelRezyser;
+    public Label labelRokProdukcji;
+    public Label labelGatunek;
+    public Label labelCena;
+    public Label labelLogin;
+    public Label labelHaslo;
+    public Button buttonDodajUzytkownika;
+    public Button buttonAwansujNaAdmina;
+    public Button buttonZabierzAdmina;
+    public Button buttonAnuluj;
+    public Button buttonUsunUzytkownika;
+    public Button buttonUsunFilm;
+    public Button buttonZmien;
     public TextField txtFieldCompanyName;
     public TextField txtFieldTitle;
     public TextField txtFieldDirector;
@@ -31,11 +46,14 @@ public class AdminPanelController implements Initializable {
     public TextField txtFieldLogin;
     public TextField txtFieldPassword;
     public CheckBox checkBoxAdmin;
+    private ResourceBundle bundle;
+    private Locale locale;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeMoviesTable();
         initializeUsersTable();
+        setStyleAndLanguage();
     }
 
     public void initializeUsersTable(){
@@ -81,7 +99,7 @@ public class AdminPanelController implements Initializable {
            int admin;
            if(checkBoxAdmin.isSelected() || !isNotEmpty) admin = 1; else admin = 0;
            if (!validData) { // jezeli nie ma takiego usera, to go dodaj
-               LoginController.connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '"+login+"', '"+password+"', '11', '0', '"+admin+"')");
+               LoginController.connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '"+login+"', '"+password+"', '21', '0', '"+admin+"')");
                MainController.listaUzytkownikow.add(new User(login,password,admin));
            } else AlertBox.display("Taki użytkownik już istnieje", "Błąd");
 
@@ -194,5 +212,63 @@ if(isValidYear(year) && isValidPrice(price)) { // najpierw sprawdzamy czy rok i 
                 AlertBox.display("Podaj prawidłową cenę", "Błąd");
                 return false; // false jezeli float bedzie ujemny
             }
+
+
+    private void setLang(ResourceBundle bundle){
+        labelNazwaFirmy.setText(bundle.getString("adminCompanyName"));
+        labelFilmy.setText(bundle.getString("adminMovies"));
+        labelUzytkownicy.setText(bundle.getString("adminUsers"));
+        colTitle.setText(bundle.getString("adminColTitle"));
+        colPrice.setText(bundle.getString("adminColPrice"));
+        colLogin.setText(bundle.getString("adminColLogin"));
+        colPassword.setText(bundle.getString("adminColPassword"));
+        colAdmin.setText(bundle.getString("adminColAdmin"));
+        buttonUsunFilm.setText(bundle.getString("adminDeleteMovie"));
+        labelTytul.setText(bundle.getString("adminTitle"));
+        labelRezyser.setText(bundle.getString("adminDirector"));
+        labelRokProdukcji.setText(bundle.getString("adminYear"));
+        labelGatunek.setText(bundle.getString("adminGenre"));
+        labelCena.setText(bundle.getString("adminPrice"));
+        buttonAwansujNaAdmina.setText(bundle.getString("adminPromoteToAdmin"));
+        buttonZabierzAdmina.setText(bundle.getString("adminTakeAdminOff"));
+        buttonUsunUzytkownika.setText(bundle.getString("adminDeleteUser"));
+        labelLogin.setText(bundle.getString("adminLoginField"));
+        labelHaslo.setText(bundle.getString("adminPasswordField"));
+        checkBoxAdmin.setText(bundle.getString("adminAdminRights"));
+        buttonDodajUzytkownika.setText(bundle.getString("adminAddUser"));
+        buttonAnuluj.setText(bundle.getString("walletCancel"));
+        buttonZmien.setText(bundle.getString("adminChange"));
+
+
+    }
+
+    private void setStyleAndLanguage(){
+        switch(LoginController.user.getSettings()){
+            case 11:
+                //  white theme + pl
+                locale = new Locale("pl");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 12:
+                // white theme + en
+                locale = new Locale("en");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 21:
+                // dark theme + pl
+                locale = new Locale("pl");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+            case 22:
+                // dark theme + en
+                locale = new Locale("en");
+                bundle = ResourceBundle.getBundle("com.example.wytwornia.lang", locale);
+                setLang(bundle);
+                break;
+        }
+    }
 
 }

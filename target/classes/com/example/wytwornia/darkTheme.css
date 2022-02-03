@@ -41,7 +41,6 @@
 .table-view .cell{
     -fx-pref-height: 30px;
     -fx-pref-width: 262.25px;
-    -fx-background-color: #15202b;
     -fx-text-fill: white;
     -fx-alignment: CENTER_LEFT;
     -fx-border-color: white;

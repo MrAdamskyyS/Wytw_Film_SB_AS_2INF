@@ -80,7 +80,7 @@ public class LoginController implements Initializable {
             int admin;
             if(!isNotEmpty) admin = 1; else admin = 0; // jezeli nie bedzie uzytkownika to ustaw admin na 1, a jezeli bedzie to na 0
             if (!validData) { // jezeli nie ma takiego usera, to go dodaj
-                connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '" + login + "', '" + password + "', '11', '0', '"+admin+"')");
+                connection.insertQuery("INSERT INTO `users` (`UID`, `Login`, `Password`, `Settings`, `Wallet`, `Admin`) VALUES (NULL, '" + login + "', '" + password + "', '21', '0', '"+admin+"')");
             } else AlertBox.display("Taki użytkownik już istnieje", "Błąd");
         }
         catch (Exception e) {

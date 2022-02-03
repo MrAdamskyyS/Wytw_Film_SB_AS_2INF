@@ -27,7 +27,7 @@
          <font>
             <Font size="31.0" />
          </font></Button>
-      <Button fx:id="brnFilmy" layoutY="127.0" mnemonicParsing="false" onAction="#btnFilmyonAction" prefHeight="56.0" prefWidth="232.0" text="Filmy" textFill="WHITE">
+      <Button fx:id="btnFilmy" layoutY="127.0" mnemonicParsing="false" onAction="#btnFilmyonAction" prefHeight="56.0" prefWidth="232.0" text="Filmy" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
@@ -71,7 +71,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Label fx:id="labelMainPortfelAmount" layoutX="105.0" layoutY="77.0" mouseTransparent="true" prefHeight="49.0" prefWidth="129.0" text="0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelMainPortfelAmount" layoutX="105.0" layoutY="76.0" mouseTransparent="true" prefHeight="49.0" prefWidth="129.0" text="0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
@@ -79,7 +79,7 @@
             <DropShadow />
          </effect>
       </Label>
-      <Label layoutX="33.0" layoutY="87.0" text="Portfel:" textFill="WHITE">
+      <Label fx:id="labelPortfel" layoutX="33.0" layoutY="87.0" text="Portfel:" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
@@ -87,9 +87,9 @@
             <DropShadow />
          </effect>
       </Label>
-      <Pane fx:id="paneFilmy" layoutX="233.0" layoutY="70.0" prefHeight="659.0" prefWidth="1049.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+      <Pane fx:id="paneFilmy" layoutX="233.0" layoutY="70.0" prefHeight="659.0" prefWidth="1049.0" visible="false" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
          <children>
-            <Button layoutX="651.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnDodajDoKoszyka" prefHeight="43.0" prefWidth="397.0" text="Dodaj film do koszyka" textFill="WHITE">
+            <Button fx:id="btnDodajDoKoszyka" layoutX="651.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnDodajDoKoszyka" prefHeight="43.0" prefWidth="397.0" text="Dodaj film do koszyka" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -113,16 +113,16 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Pane fx:id="paneUstawienia" layoutX="232.0" layoutY="71.0" visible="false">
+      <Pane fx:id="paneUstawienia" layoutX="232.0" layoutY="71.0">
          <children>
             <AnchorPane prefHeight="649.0" prefWidth="1049.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="141.0" prefHeight="49.0" prefWidth="200.0" text="Tryb wyświetlania">
+                  <Label fx:id="labelTrybWyswietlania" alignment="CENTER_RIGHT" layoutX="67.0" layoutY="141.0" prefHeight="49.0" prefWidth="200.0" text="Tryb wyświetlania">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="286.0" layoutY="140.0" mnemonicParsing="false" selected="true" text="Jasny">
+                  <RadioButton fx:id="radioJasny" layoutX="286.0" layoutY="140.0" mnemonicParsing="false" selected="true" text="Jasny">
                      <font>
                         <Font name="System" size="19.0" />
                      </font>
@@ -130,17 +130,17 @@
                         <ToggleGroup fx:id="trybWyswietlania" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="286.0" layoutY="172.0" mnemonicParsing="false" text="Ciemny" toggleGroup="$trybWyswietlania">
+                  <RadioButton fx:id="radioCiemny" layoutX="286.0" layoutY="172.0" mnemonicParsing="false" text="Ciemny" toggleGroup="$trybWyswietlania">
                      <font>
                         <Font name="System" size="19.0" />
                      </font>
                   </RadioButton>
-                  <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="249.0" prefHeight="49.0" prefWidth="209.0" text="Język">
+                  <Label fx:id="labelJezyk" alignment="CENTER_RIGHT" layoutX="61.0" layoutY="249.0" prefHeight="49.0" prefWidth="209.0" text="Język">
                      <font>
                         <Font name="System" size="23.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="285.0" layoutY="249.0" mnemonicParsing="false" selected="true" text="polski">
+                  <RadioButton fx:id="radioPolski" layoutX="285.0" layoutY="249.0" mnemonicParsing="false" onAction="#polishChosen" selected="true" text="polski">
                      <font>
                         <Font name="System" size="19.0" />
                      </font>
@@ -148,7 +148,7 @@
                         <ToggleGroup fx:id="jezykToggle" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="285.0" layoutY="281.0" mnemonicParsing="false" text="angielski" toggleGroup="$jezykToggle">
+                  <RadioButton fx:id="radioAngielski" layoutX="285.0" layoutY="281.0" mnemonicParsing="false" onAction="#englishChosen" text="angielski" toggleGroup="$jezykToggle">
                      <font>
                         <Font size="19.0" />
                      </font>
