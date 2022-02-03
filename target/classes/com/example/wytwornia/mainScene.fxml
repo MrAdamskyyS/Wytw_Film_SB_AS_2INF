@@ -87,7 +87,7 @@
             <DropShadow />
          </effect>
       </Label>
-      <Pane fx:id="paneFilmy" layoutX="233.0" layoutY="70.0" prefHeight="659.0" prefWidth="1049.0" visible="false" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+      <Pane fx:id="paneFilmy" layoutX="233.0" layoutY="70.0" prefHeight="659.0" prefWidth="1049.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
          <children>
             <Button fx:id="btnDodajDoKoszyka" layoutX="651.0" layoutY="-2.0" mnemonicParsing="false" onAction="#btnDodajDoKoszyka" prefHeight="43.0" prefWidth="397.0" text="Dodaj film do koszyka" textFill="WHITE">
                <font>
@@ -113,7 +113,7 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Pane fx:id="paneUstawienia" layoutX="232.0" layoutY="71.0">
+      <Pane fx:id="paneUstawienia" layoutX="232.0" layoutY="71.0" visible="false">
          <children>
             <AnchorPane prefHeight="649.0" prefWidth="1049.0">
                <children>
